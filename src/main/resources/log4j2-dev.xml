@@ -53,7 +53,7 @@
         </Logger>
 
         <!-- jdbc logger -->
-        <Logger name="jdbc.sqlonly" level="OFF" additivity="false">
+        <Logger name="jdbc.sqlonly" level="INFO" additivity="false">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="RollingFileAppender"/>
         </Logger>

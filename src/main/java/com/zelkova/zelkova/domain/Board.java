@@ -28,4 +28,21 @@ public class Board {
     private boolean isDel;
 
     private LocalDate date;
+
+    public void changeTitle(String title) {
+        this.title = title;
+    }
+
+    public void changeWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public void changeIsDel(boolean isDel) {
+        this.isDel = isDel;
+    }
+
+    public void changeDate(LocalDate date) {
+        this.date = date;
+    }
+
 }
