@@ -1,5 +1,7 @@
 package com.zelkova.zelkova.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,32 @@ public class BoardServiceImpl implements BoardSerivce{
         Board savedBoard = boardRepository.save(board);
 
         return savedBoard.getBno();
+    }
+
+    @Override
+    public BoardDTO get(Long bno) {
+        Optional<Board> result = boardRepository.findById(bno);
+        Board board = result.orElseThrow();
+
+        BoardDTO boardDTO = modelMapper.map(board, BoardDTO.class);
+        
+        return boardDTO;
+    }
+
+    @Override
+    public void modify(BoardDTO boardDTO) {
+        Optional<Board> result = boardRepository.findById(boardDTO.getBno());
+        Board board = result.orElseThrow();
+        
+        board.changeDate(boardDTO.getDueDate());
+        board.changeTitle(boardDTO.getTitle());
+
+        boardRepository.save(board);
+    }
+
+    @Override
+    public void remove(Long bno) {
+        boardRepository.deleteById(bno);
     }
     
 }

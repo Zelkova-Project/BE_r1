@@ -17,7 +17,7 @@ public class BoardDTO {
     private Long bno;
     private String title;
     private String writer;
-    private boolean complete;
+    private boolean isDel;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;

@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import com.zelkova.zelkova.domain.Board;
+import com.zelkova.zelkova.dto.BoardDTO;
+import com.zelkova.zelkova.service.BoardSerivce;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -21,6 +23,9 @@ import lombok.extern.log4j.Log4j2;
 public class BoardRepositoryTests {
     @Autowired
     private BoardRepository boardRepository;
+
+    @Autowired
+    private BoardSerivce boardSerivce;
 
     @Test
     public void test1() {
@@ -85,5 +90,13 @@ public class BoardRepositoryTests {
         log.info(result.getTotalElements());
 
         result.getContent().stream().forEach(board -> log.info(board));
+    }
+
+    @Test
+    public void testGet() {
+        Long bno = 10L;
+
+        BoardDTO boardDTO = boardSerivce.get(bno);
+        log.info(boardDTO);
     }
 }
