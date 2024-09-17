@@ -34,6 +34,7 @@ public class BoardController {
 
   @GetMapping("/list")
   public PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
+    log.info("tset");
     return boardSerivce.list(pageRequestDTO);
   }
 

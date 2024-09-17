@@ -13,7 +13,7 @@
         </Console>
 
         <RollingFile name ="RollingFileAppender">
-            <FileName>${LOG_PATH}/log4j2.log</FileName>
+            <FileName>${LOG_PATH}/log4j2-dev.log</FileName>
             <FilePattern>${LOG_PATH}/log4j2.%d{yyyy-MM-dd-hh-mm}.%i.log</FilePattern>
             <PatternLayout>
                 <Pattern>${DEFAULT_PATTERN}</Pattern>
@@ -40,20 +40,20 @@
 
     <Loggers>
         <!-- Root : 일반적인 로그 정책, 반드시 하나 정의해야함 -->
-        <Root level="INFO" additivity="false">
+        <Root level="INFO" additivity="true">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="RollingFileAppender"/>
             <AppenderRef ref="RollingFileErrorAppender" level="ERROR" />
         </Root>
 
         <!-- springframework logger -->
-        <Logger name="org.springframework" level="INFO" additivity="false">
+        <Logger name="org.springframework" level="INFO" additivity="true">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="RollingFileAppender"/>
         </Logger>
 
         <!-- jdbc logger -->
-        <Logger name="jdbc.sqlonly" level="INFO" additivity="false">
+        <Logger name="jdbc.sqlonly" level="OFF" additivity="false">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="RollingFileAppender"/>
         </Logger>

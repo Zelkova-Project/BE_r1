@@ -14,4 +14,6 @@ public interface BoardSerivce {
     void remove(Long bno);
 
     PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO);
+    
+    PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
 }

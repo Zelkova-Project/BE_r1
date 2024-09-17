@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.zelkova.zelkova.domain.Board;
+import com.zelkova.zelkova.domain.BoardImage;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
@@ -91,5 +92,34 @@ public class BoardServiceImpl implements BoardSerivce{
             .build();
 
         return pageResponseDTO;
+    }
+
+    @Override
+    public PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO) {
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+        Page<Object[]> result = boardRepository.selectList(pageable);
+        
+        List<BoardDTO> dtoList = result.get().map(arr -> {
+            Board board = (Board) arr[0];
+            BoardImage boardImage = (BoardImage) arr[1];
+            
+            BoardDTO boardDTO = BoardDTO.builder()
+                .title(board.getTitle())
+                .content(board.getContent())
+                .writer(board.getWriter())
+                .build();
+
+            String imageStr = boardImage.getFileName();
+            boardDTO.setUploadFileNames(List.of(imageStr));
+            return boardDTO;
+        }).collect(Collectors.toList());
+
+        long totalCount = result.getTotalElements();
+
+        return PageResponseDTO.<BoardDTO>withAll()
+                .dtoList(dtoList)
+                .totalCount(10)
+                .pageRequestDTO(pageRequestDTO)
+            .build();
     }
 }
