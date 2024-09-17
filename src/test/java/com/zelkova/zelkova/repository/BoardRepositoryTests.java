@@ -14,6 +14,8 @@ import org.springframework.data.domain.Sort;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.dto.BoardDTO;
+import com.zelkova.zelkova.dto.PageRequestDTO;
+import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
 
 import lombok.extern.log4j.Log4j2;
@@ -98,5 +100,17 @@ public class BoardRepositoryTests {
 
         BoardDTO boardDTO = boardSerivce.get(bno);
         log.info(boardDTO);
+    }
+
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+            .size(10)
+            .page(2)
+            .build();
+        
+        PageResponseDTO<BoardDTO> pageResponseDTO = boardSerivce.list(pageRequestDTO);
+
+        log.info(pageResponseDTO);
     }
 }

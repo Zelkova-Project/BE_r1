@@ -1,12 +1,20 @@
 package com.zelkova.zelkova.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.dto.BoardDTO;
+import com.zelkova.zelkova.dto.PageRequestDTO;
+import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.repository.BoardRepository;
 
 import jakarta.transaction.Transactional;
@@ -21,7 +29,7 @@ public class BoardServiceImpl implements BoardSerivce{
 
     private final ModelMapper modelMapper;
     private final BoardRepository boardRepository;
-
+    
     @Override
     public Long register(BoardDTO boardDTO) {
         /**
@@ -60,5 +68,28 @@ public class BoardServiceImpl implements BoardSerivce{
     public void remove(Long bno) {
         boardRepository.deleteById(bno);
     }
-    
+
+    @Override
+    public PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
+        Pageable pageable = PageRequest.of(pageRequestDTO.getPage() - 1, pageRequestDTO.getSize(),
+                Sort.by("bno").descending());
+
+        Page<Board> page = boardRepository.findAll(pageable);
+
+        List<BoardDTO> list = 
+                page.getContent()
+                    .stream()
+                    .map(board -> modelMapper.map(board, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        long totalCount = page.getTotalElements();
+
+        PageResponseDTO<BoardDTO> pageResponseDTO = PageResponseDTO.<BoardDTO>withAll()
+            .dtoList(list)
+            .pageRequestDTO(pageRequestDTO)
+            .totalCount(10)
+            .build();
+
+        return pageResponseDTO;
+    }
 }
