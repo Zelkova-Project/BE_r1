@@ -23,9 +23,10 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 @RequestMapping("/api/image")
 public class ImageController {
-  
+
   private final CustomFileUtil fileUtil;
 
+  // 이미지만 등록할 때
   @PostMapping("/")
   public Map<String, String> register(ImageDTO imageDTO) {
     List<MultipartFile> list = imageDTO.getFiles();
@@ -38,7 +39,7 @@ public class ImageController {
 
     return Map.of("RESULT", "SUCCESS");
   }
-  
+
   @GetMapping("/view/{filename}")
   public ResponseEntity<Resource> viewFile(@PathVariable(name = "filename") String filename) {
     ResponseEntity<Resource> resource = fileUtil.getFile(filename);

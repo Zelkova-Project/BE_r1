@@ -50,18 +50,18 @@ public class BoardRepositoryTests {
 
     @Test
     public void testInsert() {
-        for (int i = 0; i <= 10; i ++) {
+        for (int i = 0; i <= 10; i++) {
             Board board = Board.builder()
-            .title("테스트 타이틀 " + i)
-            .content("테스트 내용 " + i)
-            .writer("tomhoon" + i)
-            .isDel(false)
-            .date(LocalDate.of(2023, 12, 31))
-            .build();
+                    .title("테스트 타이틀 " + i)
+                    .content("테스트 내용 " + i)
+                    .writer("tomhoon" + i)
+                    .isDel(false)
+                    .date(LocalDate.of(2023, 12, 31))
+                    .build();
 
             board.addImageString(UUID.randomUUID().toString() + "_" + "IMAGE1.jpg");
             board.addImageString(UUID.randomUUID().toString() + "_" + "IMAGE2.jpg");
-            boardRepository.save(board);    
+            boardRepository.save(board);
         }
 
     }
@@ -78,7 +78,7 @@ public class BoardRepositoryTests {
         Board board = result.orElseThrow();
 
         board.changeTitle("Today is Tuesday");
-        board.changeDate(LocalDate.of(2024,9,10));
+        board.changeDate(LocalDate.of(2024, 9, 10));
         board.changeWriter("tomhoon ch1");
         board.changeIsDel(false);
 
@@ -94,7 +94,7 @@ public class BoardRepositoryTests {
     @Test
     public void testPaging() {
         Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
-        
+
         Page<Board> result = boardRepository.findAll(pageable);
 
         log.info(result.getTotalElements());
@@ -121,7 +121,7 @@ public class BoardRepositoryTests {
 
         log.info(pageResponseDTO);
     }
-    
+
     @Test
     @Transactional
     public void testRead2() {
@@ -140,7 +140,7 @@ public class BoardRepositoryTests {
         List<BoardImage> list = board.getImageList();
         log.info("------ imageList " + list);
     }
-    
+
     @Test
     public void testRead3() {
         long bno = 1L;
@@ -163,14 +163,14 @@ public class BoardRepositoryTests {
     @Test
     public void testUpdate() {
         // 글 하나를 가져와서
-        Long bno = 10L; //tomhoon9
+        Long bno = 10L; // tomhoon9
         Optional<Board> result = boardRepository.selectOne(bno);
         Board board = result.orElseThrow();
 
         // 이미지 리스트 모두 비우기
         board.clearList();
 
-        // 새로운 이미지 추가하기 
+        // 새로운 이미지 추가하기
         board.addImageString(UUID.randomUUID().toString() + "_" + "NEWIMAGE1.jpg");
         board.addImageString(UUID.randomUUID().toString() + "_" + "NEWIMAGE2.jpg");
 
@@ -182,12 +182,18 @@ public class BoardRepositoryTests {
         // 저장하기
         boardRepository.save(board);
     }
-    
+
     @Test
     public void testList2() {
         Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
         Page<Object[]> result = boardRepository.selectList(pageable);
 
         result.getContent().forEach(arr -> log.info(Arrays.toString(arr)));
+    }
+
+    @Test
+    public void testRead4() {
+        BoardDTO boardDTO = boardSerivce.get(9L);
+        log.info(boardDTO);
     }
 }

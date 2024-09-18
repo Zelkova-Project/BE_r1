@@ -7,14 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Embeddable
-// 소유하고있는 Entity의 특정된 클래스. -> 값 타입 객체
-// @Embeddable -> PK생성 안됨
 @Getter
 @ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class BoardImage {
   int ord;
 
