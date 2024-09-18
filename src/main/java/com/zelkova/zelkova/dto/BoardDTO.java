@@ -28,7 +28,7 @@ public class BoardDTO {
     private LocalDate dueDate;
 
     @Builder.Default
-    private List<MultipartFile> imageList = new ArrayList<>();
+    private List<MultipartFile> files = new ArrayList<>();
 
     @Builder.Default
     private List<String> uploadFileNames = new ArrayList<>();

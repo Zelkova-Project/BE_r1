@@ -28,6 +28,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.modelmapper:modelmapper:3.1.1' // 도메인 -> DTO로 필드값 맞춰서 생성해주는 패키지
 	implementation 'net.coobird:thumbnailator:0.4.19' // thumbnail
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'com.google.code.gson:gson:2.10.1'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

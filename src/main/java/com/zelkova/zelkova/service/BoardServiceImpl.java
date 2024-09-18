@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardSerivce {
          * 2. domain을 DB에 넣어준다.
          */
         Board board = modelMapper.map(boardDTO, Board.class);
-        List<MultipartFile> list = boardDTO.getImageList();
+        List<MultipartFile> list = boardDTO.getFiles();
 
         for (MultipartFile file : list) {
             board.addImageString(file.getOriginalFilename());

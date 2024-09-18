@@ -49,7 +49,7 @@ public class BoardController {
      * 1. BoardDTO의 물리파일 저장
      * 2. 경로 + 파일명 -> DB에 저장
      */
-    List<MultipartFile> list = boardDTO.getImageList();
+    List<MultipartFile> list = boardDTO.getFiles();
     List<String> uploadFileNames = fileUtil.saveFiles(list);
 
     boardDTO.setUploadFileNames(uploadFileNames);
@@ -67,7 +67,7 @@ public class BoardController {
     BoardDTO oldDTO = boardSerivce.get(bno);
 
     // 새로올린 이미지들 업로드
-    List<MultipartFile> uploadFiles = boardDTO.getImageList();
+    List<MultipartFile> uploadFiles = boardDTO.getFiles();
     List<String> uploadFileNames = fileUtil.saveFiles(uploadFiles);
 
     boardSerivce.modify(boardDTO);
