@@ -3,10 +3,14 @@ package com.zelkova.zelkova.security.filter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
+import java.util.List;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.google.gson.Gson;
+import com.zelkova.zelkova.dto.MemberDTO;
 import com.zelkova.zelkova.util.JWTUtil;
 
 import jakarta.servlet.FilterChain;
@@ -33,9 +37,9 @@ public class JWTCheckFilter extends OncePerRequestFilter {
       return true;
     }
 
-    if (path.startsWith("/api/board/")) {
-      return true;
-    }
+    // if (path.startsWith("/api/board/")) {
+    // return true;
+    // }
 
     return false;
   }
@@ -51,6 +55,24 @@ public class JWTCheckFilter extends OncePerRequestFilter {
       Map<String, Object> claims = JWTUtil.validateToken(accessToken);
 
       log.info("JWT claims " + claims);
+
+      String email = (String) claims.get("email");
+      String pw = (String) claims.get("pw");
+      String nickname = (String) claims.get("nickname");
+      Boolean social = (Boolean) claims.get("social");
+      List<String> roleNames = (List<String>) claims.get("roleNames");
+
+      MemberDTO memberDTO = new MemberDTO(email, pw, nickname, social.booleanValue(), roleNames);
+
+      log.info("------------------------");
+      log.info(memberDTO);
+      log.info(memberDTO.getAuthorities());
+
+      UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(memberDTO,
+          memberDTO.getAuthorities());
+
+      SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+      ;
 
       filterChain.doFilter(request, response);
 
