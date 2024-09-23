@@ -7,16 +7,11 @@ plugins {
 group = 'com.zelkova'
 version = '0.0.1-SNAPSHOT'
 
-// java {
-// 	toolchain {
-// 		languageVersion = JavaLanguageVersion.of(17)
-// 	}
-// }
-
 java {
-	sourceCompatibility = '17'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
 }
-
 
 configurations {
 	compileOnly {
