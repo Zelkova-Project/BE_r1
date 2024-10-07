@@ -27,7 +27,7 @@ public class Member {
 
  private String nickname;
 
- private boolean social;
+ private boolean isSocial;
 
  // 값 타입 객체. 테이블로 따로 관리. LazyLoading 형식(접근 필요없으면 쿼리x)
  @ElementCollection(fetch = FetchType.LAZY)
@@ -50,7 +50,7 @@ public class Member {
   this.pw = pw;
  }
 
- public void changeSocial(boolean social) {
-  this.social = social;
+ public void changeSocial(boolean isSocial) {
+  this.isSocial = isSocial;
  }
 }

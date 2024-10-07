@@ -18,38 +18,38 @@ import lombok.ToString;
 @ToString
 public class MemberDTO extends User {
 
- private String email;
+  private String email;
 
- private String pw;
+  private String pw;
 
- private String nickname;
+  private String nickname;
 
- private boolean social;
+  private boolean isSocial;
 
- private List<String> roleNames = new ArrayList<>();
+  private List<String> roleNames = new ArrayList<>();
 
- // Security에서의 회원을 다루는 객체인 "User"은 password, username, authority 등이 있다.
- public MemberDTO(String email, String pw, String nickname, boolean social, List<String> roleNames) {
-  super(email, pw,
-    roleNames.stream().map(str -> new SimpleGrantedAuthority("ROLE_" + str)).collect(Collectors.toList()));
+  // Security에서의 회원을 다루는 객체인 "User"은 password, username, authority 등이 있다.
+  public MemberDTO(String email, String pw, String nickname, boolean isSocial, List<String> roleNames) {
+    super(email, pw,
+        roleNames.stream().map(str -> new SimpleGrantedAuthority("ROLE_" + str)).collect(Collectors.toList()));
 
-  this.email = email;
-  this.pw = pw;
-  this.nickname = nickname;
-  this.social = social;
-  this.roleNames = roleNames;
- }
+    this.email = email;
+    this.pw = pw;
+    this.nickname = nickname;
+    this.isSocial = isSocial;
+    this.roleNames = roleNames;
+  }
 
- //
- public Map<String, Object> getClaims() {
-  Map<String, Object> dataMap = new HashMap<>();
+  //
+  public Map<String, Object> getClaims() {
+    Map<String, Object> dataMap = new HashMap<>();
 
-  dataMap.put("email", email);
-  dataMap.put("pw", pw);
-  dataMap.put("nickname", nickname);
-  dataMap.put("social", social);
-  dataMap.put("roleNames", roleNames);
+    dataMap.put("email", email);
+    dataMap.put("pw", pw);
+    dataMap.put("nickname", nickname);
+    dataMap.put("isSocial", isSocial);
+    dataMap.put("roleNames", roleNames);
 
-  return dataMap;
- }
+    return dataMap;
+  }
 }
