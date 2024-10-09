@@ -1,0 +1,427 @@
+nohup: ignoring input
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.3)
+
+2024-10-08T02:06:54.891+09:00  INFO 117775 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Starting ZelkovaApplication v0.0.1-SNAPSHOT using Java 17.0.12 with PID 117775 (/root/BE_r1/build/libs/zelkova-0.0.1-SNAPSHOT.jar started by root in /root/BE_r1)
+2024-10-08T02:06:54.894+09:00  INFO 117775 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-10-08T02:06:57.008+09:00  INFO 117775 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-08T02:06:57.194+09:00  INFO 117775 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 182 ms. Found 2 JPA repository interfaces.
+2024-10-08T02:06:59.252+09:00  INFO 117775 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-08T02:06:59.289+09:00  INFO 117775 --- [zelkova] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-08T02:06:59.289+09:00  INFO 117775 --- [zelkova] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-08T02:06:59.667+09:00  INFO 117775 --- [zelkova] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-08T02:06:59.668+09:00  INFO 117775 --- [zelkova] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4636 ms
+2024-10-08T02:07:00.535+09:00  INFO 117775 --- [zelkova] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-08T02:07:00.693+09:00  INFO 117775 --- [zelkova] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-08T02:07:00.774+09:00  INFO 117775 --- [zelkova] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-08T02:07:01.688+09:00  INFO 117775 --- [zelkova] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-08T02:07:01.750+09:00  INFO 117775 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-08T02:07:01.954+09:00  INFO 117775 --- [zelkova] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@39514976
+2024-10-08T02:07:01.955+09:00  INFO 117775 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-08T02:07:04.194+09:00  INFO 117775 --- [zelkova] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-08T02:07:04.289+09:00  INFO 117775 --- [zelkova] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-08T02:07:04.328+09:00  INFO 117775 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : ---------------
+2024-10-08T02:07:04.329+09:00  INFO 117775 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : --------------- uploadPath : /root/BE_r1/upload
+2024-10-08T02:07:05.075+09:00  INFO 117775 --- [zelkova] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-08T02:07:06.650+09:00  WARN 117775 --- [zelkova] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-08T02:07:06.807+09:00  INFO 117775 --- [zelkova] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-10-08T02:07:06.915+09:00  INFO 117775 --- [zelkova] [           main] c.zelkova.zelkova.config.CustomSecurity  : -------------security config ----------
+2024-10-08T02:07:08.453+09:00  INFO 117775 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-08T02:07:08.513+09:00  INFO 117775 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Started ZelkovaApplication in 14.695 seconds (process running for 16.157)
+2024-10-08T02:07:09.013+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-08T02:07:09.014+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-08T02:07:09.015+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-08T02:07:09.087+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
+2024-10-08T02:07:09.410+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+Hibernate: 
+    select
+        m1_0.email,
+        m1_0.is_social,
+        mrl1_0.member_email,
+        mrl1_0.member_role_list,
+        m1_0.nickname,
+        m1_0.pw 
+    from
+        member m1_0 
+    left join
+        member_member_role_list mrl1_0 
+            on m1_0.email=mrl1_0.member_email 
+    where
+        m1_0.email=?
+2024-10-08T02:07:09.712+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T02:07:09.893+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
+2024-10-08T02:07:09.894+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=218.237.217.49, SessionId=null], Granted Authorities=[ROLE_USER]]
+2024-10-08T02:07:09.894+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
+2024-10-08T02:07:33.223+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
+2024-10-08T02:07:33.225+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+Hibernate: 
+    select
+        m1_0.email,
+        m1_0.is_social,
+        mrl1_0.member_email,
+        mrl1_0.member_role_list,
+        m1_0.nickname,
+        m1_0.pw 
+    from
+        member m1_0 
+    left join
+        member_member_role_list mrl1_0 
+            on m1_0.email=mrl1_0.member_email 
+    where
+        m1_0.email=?
+2024-10-08T02:07:33.231+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T02:07:33.330+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
+2024-10-08T02:07:33.331+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=218.237.217.49, SessionId=null], Granted Authorities=[ROLE_USER]]
+2024-10-08T02:07:33.331+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
+2024-10-08T02:07:37.572+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
+2024-10-08T02:07:37.573+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+Hibernate: 
+    select
+        m1_0.email,
+        m1_0.is_social,
+        mrl1_0.member_email,
+        mrl1_0.member_role_list,
+        m1_0.nickname,
+        m1_0.pw 
+    from
+        member m1_0 
+    left join
+        member_member_role_list mrl1_0 
+            on m1_0.email=mrl1_0.member_email 
+    where
+        m1_0.email=?
+2024-10-08T02:07:37.591+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T02:07:37.709+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
+2024-10-08T02:07:37.709+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=218.237.217.49, SessionId=null], Granted Authorities=[ROLE_USER]]
+2024-10-08T02:07:37.709+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
+2024-10-08T03:46:40.842+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /login.asp
+2024-10-08T03:46:40.843+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T04:51:18.891+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T04:51:18.891+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T04:51:54.099+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T04:51:54.099+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T04:52:09.873+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T04:52:09.874+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T04:52:38.359+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /geoserver/web/
+2024-10-08T04:52:38.359+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T05:39:02.101+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T05:39:02.101+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T05:53:42.773+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T05:53:42.773+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T05:54:25.219+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T05:54:25.219+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T06:18:18.147+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /boaform/admin/formLogin
+2024-10-08T06:18:18.147+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T06:51:13.845+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T06:51:13.847+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T07:45:20.947+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T07:45:20.947+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T07:45:45.275+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T07:45:45.275+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T07:45:48.044+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T07:45:48.044+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T08:34:25.068+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /containers/json
+2024-10-08T08:34:25.068+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T09:43:44.132+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xee0x010x000x000xea0x030x03K0xb20xc60xef0xe0s+0xbdV0xeb0x050xc70xb80xbbXT_0x8cn0x980x9f1%0xc7?0xac0x1f`0xc2E0xd50xe3 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-10-08T10:43:17.215+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T10:43:17.215+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T10:43:17.491+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /download/powershell/
+2024-10-08T10:43:17.491+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T10:44:21.214+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T10:44:21.215+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T10:48:31.787+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T10:48:31.787+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T12:11:26.878+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T12:11:26.878+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T12:11:36.206+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T12:11:36.206+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T12:11:36.633+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T12:11:36.633+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T12:24:48.324+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T12:24:48.324+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T13:26:43.093+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T13:26:43.093+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T13:31:41.568+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T13:31:41.568+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T13:31:42.175+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T13:31:42.176+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T13:31:42.814+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T13:31:42.814+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T15:47:18.208+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
+2024-10-08T15:47:18.210+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+Hibernate: 
+    select
+        m1_0.email,
+        m1_0.is_social,
+        mrl1_0.member_email,
+        mrl1_0.member_role_list,
+        m1_0.nickname,
+        m1_0.pw 
+    from
+        member m1_0 
+    left join
+        member_member_role_list mrl1_0 
+            on m1_0.email=mrl1_0.member_email 
+    where
+        m1_0.email=?
+2024-10-08T15:47:18.235+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T15:47:18.333+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
+2024-10-08T15:47:18.333+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=210.220.71.213, SessionId=null], Granted Authorities=[ROLE_USER]]
+2024-10-08T15:47:18.333+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
+2024-10-08T15:54:19.836+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/3
+2024-10-08T15:54:19.879+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1728370038, exp=1728370638}
+2024-10-08T15:54:19.879+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
+2024-10-08T15:54:19.879+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T15:54:19.879+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
+Hibernate: 
+    select
+        b1_0.bno,
+        b1_0.content,
+        b1_0.date,
+        b1_0.is_del,
+        b1_0.title,
+        b1_0.writer 
+    from
+        board b1_0 
+    where
+        b1_0.bno=?
+Hibernate: 
+    select
+        il1_0.board_bno,
+        il1_0.file_name,
+        il1_0.ord 
+    from
+        board_image_list il1_0 
+    where
+        il1_0.board_bno=?
+2024-10-08T15:54:30.184+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/3
+2024-10-08T15:54:30.184+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T15:58:30.038+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T15:58:30.038+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:02:41.769+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:02:41.770+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:03:05.449+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:03:05.450+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:03:39.811+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api
+2024-10-08T16:03:39.811+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:03:44.080+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/login
+2024-10-08T16:03:44.080+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:03:51.600+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/normallogin
+2024-10-08T16:03:51.600+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:03:57.629+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/normalLogin
+2024-10-08T16:03:57.630+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:04:23.660+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:04:23.660+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:05:16.494+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/3
+2024-10-08T16:05:16.495+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:05:19.360+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board
+2024-10-08T16:05:19.360+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:05:33.530+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:05:33.530+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:07:35.769+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board
+2024-10-08T16:07:35.769+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:08:18.430+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board
+2024-10-08T16:08:18.431+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:08:22.101+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:08:22.101+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:09:16.570+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:09:16.571+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:09:56.911+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:09:56.911+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:10:25.491+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /login
+2024-10-08T16:10:25.491+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:11:12.417+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member
+2024-10-08T16:11:12.417+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:11:20.032+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /member
+2024-10-08T16:11:20.032+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:11:25.291+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api
+2024-10-08T16:11:25.291+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:11:29.741+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member
+2024-10-08T16:11:29.741+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:11:51.437+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/refresh
+2024-10-08T16:11:51.458+09:00  WARN 117775 --- [zelkova] [nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2024-10-08T16:12:22.993+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:12:22.993+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:14:46.582+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T16:14:46.583+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T16:15:21.705+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
+2024-10-08T16:15:21.705+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+Hibernate: 
+    select
+        m1_0.email,
+        m1_0.is_social,
+        mrl1_0.member_email,
+        mrl1_0.member_role_list,
+        m1_0.nickname,
+        m1_0.pw 
+    from
+        member m1_0 
+    left join
+        member_member_role_list mrl1_0 
+            on m1_0.email=mrl1_0.member_email 
+    where
+        m1_0.email=?
+2024-10-08T16:15:21.710+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
+2024-10-08T16:15:21.803+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
+2024-10-08T16:15:21.803+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=211.246.68.38, SessionId=null], Granted Authorities=[ROLE_USER]]
+2024-10-08T16:15:21.803+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
+2024-10-08T16:23:51.473+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /boaform/admin/formLogin
+2024-10-08T16:23:51.475+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T19:57:07.811+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T19:57:07.821+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T19:59:05.590+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T19:59:05.591+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T19:59:06.802+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T19:59:06.802+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T20:26:02.608+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T20:26:02.608+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:03:56.854+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /hudson
+2024-10-08T21:03:56.854+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:13:00.598+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T21:13:00.598+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:14:17.836+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T21:14:17.837+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:14:18.125+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T21:14:18.125+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:14:18.396+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /sitemap.xml
+2024-10-08T21:14:18.397+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:14:18.404+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /robots.txt
+2024-10-08T21:14:18.404+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:31:18.444+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T21:31:18.444+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:54:06.994+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T21:54:06.995+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:54:16.578+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T21:54:16.578+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T21:54:17.044+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-08T21:54:17.044+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T22:06:04.210+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-08T22:06:04.210+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-08T23:22:30.209+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /login.asp
+2024-10-08T23:22:30.209+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:11:22.447+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T01:11:22.447+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:11:24.019+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T01:11:24.019+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:11:24.674+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T01:11:24.674+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:11:25.420+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /robots.txt
+2024-10-09T01:11:25.420+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:30:12.858+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /login.asp
+2024-10-09T01:30:12.858+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T01:52:21.582+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T01:52:21.582+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T03:35:56.868+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T03:35:56.868+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T03:35:57.755+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T03:35:57.755+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T03:39:50.656+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T03:39:50.657+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T03:39:51.168+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T03:39:51.168+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T04:00:18.427+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T04:00:18.427+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T04:00:27.746+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T04:00:27.746+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T04:00:28.510+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T04:00:28.510+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T05:12:03.869+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T05:12:03.869+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T05:22:36.206+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T05:22:36.206+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T08:37:27.156+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T08:37:27.156+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:31:27.267+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T10:31:27.267+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:32:18.569+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /c/
+2024-10-09T10:32:18.569+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:36:42.908+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x000xee0x010x000x000xea0x030x030x820x9c0xc5I0xd1#0xb30x170x060x0e0x11i0x9d0xb2m0xcc50xe50x190xe1T}0x080x8fL0x91%0xff0xe20x02B0xb2 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-10-09T10:40:21.952+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /goform/set_LimitClient_cfg
+2024-10-09T10:40:21.952+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:46:41.092+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T10:46:41.092+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:47:14.466+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T10:47:14.466+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:47:45.318+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T10:47:45.318+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:48:15.693+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T10:48:15.693+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T10:48:36.522+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /geoserver/web/
+2024-10-09T10:48:36.523+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T11:10:43.788+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T11:10:43.788+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T11:47:34.103+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T11:47:34.104+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T11:55:51.594+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T11:55:51.594+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T12:38:50.095+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /manager/html
+2024-10-09T12:38:50.102+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T14:36:48.405+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T14:36:48.405+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T14:36:49.364+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T14:36:49.364+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T15:46:13.689+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T15:46:13.689+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T16:31:32.609+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T16:31:32.610+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T18:34:44.040+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T18:34:44.040+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T18:34:45.382+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T18:34:45.382+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T19:27:06.854+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /manager/html
+2024-10-09T19:27:06.854+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T20:15:59.740+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T20:15:59.741+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T20:16:12.278+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T20:16:12.278+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T20:16:12.784+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T20:16:12.784+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T20:35:10.688+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T20:35:10.688+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T22:47:45.002+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T22:47:45.002+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T22:47:45.034+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /favicon.ico
+2024-10-09T22:47:45.034+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T23:04:44.471+09:00  INFO 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T23:04:44.472+09:00 ERROR 117775 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T23:04:45.796+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T23:04:45.796+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T23:07:57.394+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-10-09T23:07:57.394+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-10-09T23:22:06.906+09:00  INFO 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /login
+2024-10-09T23:22:06.910+09:00 ERROR 117775 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
