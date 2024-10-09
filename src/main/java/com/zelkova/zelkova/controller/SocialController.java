@@ -9,6 +9,7 @@ import com.zelkova.zelkova.dto.MemberDTO;
 import com.zelkova.zelkova.service.MemberService;
 import com.zelkova.zelkova.util.JWTUtil;
 
+import lombok.extern.log4j.Log4j2;
 import lombok.RequiredArgsConstructor;
 
 @RestController
