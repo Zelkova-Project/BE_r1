@@ -4,11 +4,13 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -34,9 +36,17 @@ public class Board {
 
     private LocalDate date;
 
-    @ElementCollection // 값타입컬렉션 선언
+    private int counts;
+
+    private int likes;
+
+    // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BoardImage> imageList = new ArrayList<>();
+
+    @Builder.Default
+    private List<String> uploadFileNames = new ArrayList<>();
 
     public void changeTitle(String title) {
         this.title = title;
@@ -58,6 +68,14 @@ public class Board {
         this.content = content;
     }
 
+    public void addCounts() {
+        this.counts += 1;
+    }
+
+    public void addLikes() {
+        this.likes += 1;
+    }
+
     public void addImage(BoardImage image) {
         image.setOrd(this.imageList.size());
         imageList.add(image);
@@ -66,6 +84,7 @@ public class Board {
     public void addImageString(String fileName) {
         BoardImage boardImage = BoardImage.builder()
                 .fileName(fileName)
+                .board(this)
                 .build();
 
         addImage(boardImage);

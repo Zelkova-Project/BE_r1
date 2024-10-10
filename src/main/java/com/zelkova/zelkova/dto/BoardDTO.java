@@ -23,6 +23,8 @@ public class BoardDTO {
     private String content;
     private String writer;
     private boolean isDel;
+    private int counts;
+    private int likes;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;

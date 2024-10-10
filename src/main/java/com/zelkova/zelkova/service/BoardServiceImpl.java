@@ -77,7 +77,7 @@ public class BoardServiceImpl implements BoardSerivce {
 
         List<String> fileList = list.stream().map(boardImage -> boardImage.getFileName()).toList();
 
-        boardDTO.setUploadFileNames(fileList);
+        boardDTO.setUploadFileNames(board.getUploadFileNames());
 
         return boardDTO;
     }
