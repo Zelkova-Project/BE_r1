@@ -38,7 +38,7 @@ public class BoardController {
   }
 
   // @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // 권한설정
-  @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
+  // @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
   @GetMapping("/list")
   public PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
     log.info("test");
