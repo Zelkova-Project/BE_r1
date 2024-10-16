@@ -1,4 +1,4 @@
-package com.zelkova.zelkova.controller.files;
+package com.zelkova.zelkova.controller;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -9,36 +9,42 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import com.zelkova.zelkova.util.CustomFileUtil;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/api/files")
+@RequiredArgsConstructor
+@Log4j2
 public class FileDownloadController {
 
     private final String fileStorageLocation = "./upload"; // Directory where files are stored
+    private final CustomFileUtil fileUtil;
 
-    // POST endpoint to upload a file
-    // @PostMapping("/upload")
-    // public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-    //     // Check if the uploaded file is a PDF
-    //     if (file.isEmpty()) {
-    //         return new ResponseEntity<>("Please select a file to upload.", HttpStatus.BAD_REQUEST);
-    //     }
+    // 단일 pdf, excel, hwp 파일 업로드 체크
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        log.info("uplaod file >>> " + file);
 
-    //     if (!file.getContentType().equals("application/pdf")) {
-    //         return new ResponseEntity<>("Only PDF files are allowed.", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
-    //     }
+        // Check if the uploaded file is a PDF
+        if (file.isEmpty()) {
+            return new ResponseEntity<>("Please select a file to upload.", HttpStatus.BAD_REQUEST);
+        }
 
-    //     try {
-    //         // Save the file using the service
-    //         String filePath = fileStorageService.saveFile(file);
-    //         return new ResponseEntity<>("File saved at: " + filePath, HttpStatus.OK);
-    //     } catch (IOException e) {
-    //         return new ResponseEntity<>("File upload failed: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    //     }
-    // }
+        if (!file.getContentType().equals("application/pdf")) {
+            return new ResponseEntity<>("Only PDF files are allowed.", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+        }
+
+        // Save the file using the service
+        String filePath = fileUtil.saveFile(file);
+        return new ResponseEntity<>(filePath, HttpStatus.OK);
+        // return new ResponseEntity<>("File upload failed: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     @GetMapping("/download/{fileName}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {

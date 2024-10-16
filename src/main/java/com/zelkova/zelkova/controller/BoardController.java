@@ -52,8 +52,9 @@ public class BoardController {
      * 1. BoardDTO의 물리파일 저장
      * 2. 경로 + 파일명 -> DB에 저장
      */
-    List<MultipartFile> list = boardDTO.getFiles();
-    List<String> uploadFileNames = fileUtil.saveFiles(list);
+    // List<MultipartFile> list = boardDTO.getFiles();
+    // List<String> uploadFileNames = fileUtil.saveFiles(list);
+    List<String> uploadFileNames = boardDTO.getUploadFileNames();
 
     boardDTO.setUploadFileNames(uploadFileNames);
 

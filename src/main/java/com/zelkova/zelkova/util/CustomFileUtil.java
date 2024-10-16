@@ -28,19 +28,45 @@ public class CustomFileUtil {
   // 업로드 경로 기본값을 application properties
   @Value("${com.zelkova.upload.path}")
   private String uploadPath;
+
+  @Value("${com.zelkova.upload.filepath}")
+  private String filepath;
   
   // init "@PostConstruct"를 이용해 디렉토리 없으면 생성
   // dependency injection 되는 순간 excute
   @PostConstruct
   public void init() {
     File file = new File(uploadPath);
+    File file2 = new File(filepath);
 
     if (!file.exists()) {
       file.mkdir();
     }
+
+    if (!file2.exists()) {
+      file2.mkdir();
+    }
     uploadPath = file.getAbsolutePath();
+    filepath = file2.getAbsolutePath();
     log.info("---------------");
     log.info("--------------- uploadPath : " + uploadPath);
+    log.info("--------------- filepath : " + filepath);
+  }
+
+  public String saveFile(MultipartFile file) {
+    if (file == null) {
+      return "no file";
+    }
+    String fileSavedName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+    Path path = Paths.get(filepath, fileSavedName);
+
+    try {
+      Files.copy(file.getInputStream(), path);
+    } catch (IOException e) {
+      log.info("file Except ! " + e);
+    }
+
+    return fileSavedName;
   }
   
   public List<String> saveFiles(List<MultipartFile> files) {
