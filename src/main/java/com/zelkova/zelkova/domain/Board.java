@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -30,6 +32,8 @@ public class Board {
 
     private String writer;
 
+    @Lob
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String content;
 
     private boolean isDel;
