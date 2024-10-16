@@ -28,16 +28,14 @@ public class ImageController {
 
   // 이미지만 등록할 때
   @PostMapping("/")
-  public Map<String, String> register(ImageDTO imageDTO) {
+  public Map<String, List<String>> register(ImageDTO imageDTO) {
     List<MultipartFile> list = imageDTO.getFiles();
 
     List<String> uploadFileNames = fileUtil.saveFiles(list);
 
     imageDTO.setUploadFileNames(uploadFileNames);
 
-    log.info("uploadFileNames >>> " + uploadFileNames);
-
-    return Map.of("RESULT", "SUCCESS");
+    return Map.of("imageNames", uploadFileNames);
   }
 
   @GetMapping("/view/{filename}")
