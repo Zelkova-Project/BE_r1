@@ -41,6 +41,10 @@ public class JWTCheckFilter extends OncePerRequestFilter {
       return true;
     }
 
+    if (path.startsWith("/api/files/")) {
+      return true;
+    }
+
     // if (path.startsWith("/api/board/")) {
     // return true;
     // }

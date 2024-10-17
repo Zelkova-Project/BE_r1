@@ -69,6 +69,7 @@ public class BoardServiceImpl implements BoardSerivce {
                 .title(board.getTitle())
                 .content(board.getContent())
                 .dueDate(board.getDate())
+                .uploadFileNames(board.getUploadFileNames())
                 .build();
 
         List<BoardImage> list = board.getImageList();
