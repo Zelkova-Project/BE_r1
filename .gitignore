@@ -37,3 +37,12 @@ out/
 .vscode/
 
 .output.log
+
+*.png
+*.jpeg
+*.jpg
+*.pdf
+*.excel
+*.docx
+*.hwp
+*.webp

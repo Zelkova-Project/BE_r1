@@ -17,6 +17,7 @@ import lombok.extern.log4j.Log4j2;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("/api/files")
@@ -36,8 +37,16 @@ public class FileDownloadController {
         if (file.isEmpty()) {
             return new ResponseEntity<>("Please select a file to upload.", HttpStatus.BAD_REQUEST);
         }
+        String contentType = file.getContentType();
+        String[] checkArray = new String[4];  
+        checkArray[0] = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"; //word 파일
+        checkArray[1] = "application/pdf"; // pdf
+        checkArray[2] = "application/octet-stream"; // 한글
+        checkArray[3] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // 엑셀
 
-        if (!file.getContentType().equals("application/pdf")) {
+        boolean found = Arrays.asList(checkArray).contains(contentType);
+
+        if (!found) {
             return new ResponseEntity<>("Only PDF files are allowed.", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
         }
 
