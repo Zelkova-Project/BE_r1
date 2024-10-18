@@ -53,18 +53,33 @@ public class CustomFileUtil {
     log.info("--------------- filepath : " + filepath);
   }
 
-  public String saveFile(MultipartFile file) {
+  public String saveFile(MultipartFile file) throws IOException {
     if (file == null) {
       return "no file";
     }
+    String fileName = file.getOriginalFilename();
     String fileSavedName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-    Path path = Paths.get(filepath, fileSavedName);
 
-    try {
-      Files.copy(file.getInputStream(), path);
-    } catch (IOException e) {
-      log.info("file Except ! " + e);
+    if (fileName.indexOf(".webp") > -1 || fileName.indexOf(".png") > -1 || fileName.indexOf(".jpg") > -1) {
+      Path filePath = Paths.get(uploadPath + "/" + fileSavedName);
+      Files.write(filePath, file.getBytes());  
+    } else {
+      Path filePath = Paths.get(filepath + "/" + fileSavedName);
+      Files.write(filePath, file.getBytes());
     }
+
+    // String fileSavedName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+    // Path filePath = Paths.get(uploadPath + "/" + fileSavedName);
+    // Files.write(filePath, file.getBytes());
+
+    // String fileSavedName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+    // Path path = Paths.get(filepath, fileSavedName);
+
+    // try {
+    //   Files.copy(file.getInputStream(), path);
+    // } catch (IOException e) {
+    //   log.info("file Except ! " + e);
+    // }
 
     return fileSavedName;
   }
