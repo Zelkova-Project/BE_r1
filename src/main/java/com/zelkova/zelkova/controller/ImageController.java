@@ -2,6 +2,7 @@ package com.zelkova.zelkova.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -41,13 +42,29 @@ public class ImageController {
   }
 
     // 이미지만 등록할 때
-    @PostMapping("/webp/")
-    public Map<String, String> registerWebp(@RequestParam("file") MultipartFile file) throws IOException {
+    // @PostMapping("/webp/")
+    // public Map<String, String> registerWebp(@RequestParam("file") MultipartFile file) throws IOException {
   
-      String webpName = fileUtil.saveFile(file);
+    //   String webpName = fileUtil.saveFile(file);
   
-      return Map.of("uploadFileName", webpName);
+    //   return Map.of("uploadFileName", webpName);
+    // }
+
+  @PostMapping("/webp/")
+  public List<String> registerWebp(@RequestParam("files") List<MultipartFile> files) throws IOException {
+
+    String webpName = "";
+
+    List<String> loadedFileNames = new ArrayList<>();
+
+    for (int i = 0; i < files.size(); i++) {
+      MultipartFile file = files.get(i);
+      webpName = fileUtil.saveFile(file);
+      loadedFileNames.add(webpName);
     }
+    
+    return loadedFileNames;
+  }
 
   @GetMapping("/view/{filename}")
   public ResponseEntity<Resource> viewFile(@PathVariable(name = "filename") String filename) {
