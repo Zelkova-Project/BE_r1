@@ -2,11 +2,13 @@ package com.zelkova.zelkova.domain;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.zelkova.zelkova.dto.CommentDTO;
+
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -52,6 +54,10 @@ public class Board {
     @Builder.Default
     private List<String> uploadFileNames = new ArrayList<>();
 
+    @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> commentList = new ArrayList<>();
+
     public void changeTitle(String title) {
         this.title = title;
     }
@@ -93,9 +99,21 @@ public class Board {
 
         addImage(boardImage);
     }
+    
+    public void addComment(CommentDTO commentDTO) {
+        Comment comment = Comment.builder()
+            .content(commentDTO.getContent())
+            .isDel(commentDTO.isDel())
+            .date(commentDTO.getDueDate())
+            .likes(commentDTO.getLikes())
+            .board(this)
+            .build();
+
+        commentList.add(comment);
+    }
 
     public void clearList() {
         this.imageList.clear();
     }
-
 }
+
