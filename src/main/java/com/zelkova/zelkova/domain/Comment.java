@@ -35,6 +35,7 @@ public class Comment {
     @JoinColumn(name = "board_bno", nullable = true)
     private Board board;
 
+    private String writer;
+
     private int likes;
 }
-

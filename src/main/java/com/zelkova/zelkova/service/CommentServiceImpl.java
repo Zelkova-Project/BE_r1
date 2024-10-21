@@ -2,19 +2,12 @@ package com.zelkova.zelkova.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.zelkova.zelkova.domain.Comment;
 import com.zelkova.zelkova.dto.CommentDTO;
-import com.zelkova.zelkova.dto.PageRequestDTO;
-import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.repository.CommentRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -23,36 +16,36 @@ import lombok.extern.log4j.Log4j2;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class CommentServiceImpl implements CommentService{
+public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
     private final ModelMapper modelMapper;
-    
-    @Override
-    public PageResponseDTO<CommentDTO> getList(PageRequestDTO pageRequestDTO) {
-        Pageable pageable = PageRequest
-            .of(0, 10, Sort.by("bno")
-                    .descending());
 
-        Page<Object[]> result = commentRepository.selectList(pageable);
+    // @Override
+    // public PageResponseDTO<CommentDTO> getList(PageRequestDTO pageRequestDTO) {
+    // Pageable pageable = PageRequest
+    // .of(0, 10, Sort.by("bno")
+    // .descending());
 
-        List<CommentDTO> dtoList = result.get().map(arr -> {
-            Comment comment = (Comment) arr[0];
+    // Page<Object[]> result = commentRepository.selectList(pageable);
 
-            CommentDTO commentDTO = CommentDTO.builder()
-                .content(comment.getContent())
-                .likes(comment.getLikes())
-                .build();
+    // List<CommentDTO> dtoList = result.get().map(arr -> {
+    // Comment comment = (Comment) arr[0];
 
-            return commentDTO;
-        }).collect(Collectors.toList());
+    // CommentDTO commentDTO = CommentDTO.builder()
+    // .content(comment.getContent())
+    // .likes(comment.getLikes())
+    // .build();
 
-        return PageResponseDTO.<CommentDTO>withAll()
-                .dtoList(dtoList)
-                .totalCount(10)
-                .pageRequestDTO(pageRequestDTO)
-                .build();
-    }
+    // return commentDTO;
+    // }).collect(Collectors.toList());
+
+    // return PageResponseDTO.<CommentDTO>withAll()
+    // .dtoList(dtoList)
+    // .totalCount(10)
+    // .pageRequestDTO(pageRequestDTO)
+    // .build();
+    // }
 
     private CommentDTO entityToDTO(Comment comment) {
         CommentDTO commentDTO = CommentDTO.builder()
@@ -60,7 +53,7 @@ public class CommentServiceImpl implements CommentService{
                 .content(comment.getContent())
                 .dueDate(comment.getDate())
                 .bno(comment.getBoard().getBno())
-                .writer(comment.getBoard().getWriter())
+                .writer(comment.getWriter())
                 .build();
 
         return commentDTO;
@@ -87,6 +80,5 @@ public class CommentServiceImpl implements CommentService{
 
         return savedComment.getCno();
     }
-    
-}
 
+}

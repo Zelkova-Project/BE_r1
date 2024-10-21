@@ -14,7 +14,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/comment")
@@ -30,9 +30,8 @@ public class CommentController {
     }
 
     @PostMapping("/")
-    public Long register(CommentDTO commentDTO) {
+    public Long register(@RequestBody CommentDTO commentDTO) {
         Long cno = commentService.register(commentDTO);
         return cno;
     }
 }
-

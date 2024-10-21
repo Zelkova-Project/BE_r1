@@ -1,33 +1,15 @@
-package com.zelkova.zelkova.dto;
+package com.zelkova.zelkova.repository;
 
-import java.time.LocalDate;
+import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.zelkova.zelkova.domain.Comment;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class CommentDTO {
-    private Long cno;
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 
-    private String content;
-
-    private boolean isDel;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dueDate;
-    
-    private Long bno;
-
-    private String writer;
-
-    private int likes;
+ @Query("select c from Comment c where c.board.bno = :bno")
+ List<Comment> get(@Param("bno") Long bno);
 }
-
-
