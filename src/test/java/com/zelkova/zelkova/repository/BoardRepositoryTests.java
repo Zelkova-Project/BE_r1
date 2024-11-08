@@ -17,6 +17,7 @@ import org.springframework.test.annotation.Commit;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.domain.BoardImage;
+import com.zelkova.zelkova.domain.UserLike;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
@@ -63,6 +64,10 @@ public class BoardRepositoryTests {
             board.addImageString(UUID.randomUUID().toString() + "_" + "IMAGE2.jpg");
             board.addCounts();
             board.addLikes();
+
+            UserLike userLike = UserLike.builder().build();
+            board.addUserLike(userLike);
+
             boardRepository.save(board);
         }
 
@@ -197,5 +202,16 @@ public class BoardRepositoryTests {
     public void testRead4() {
         BoardDTO boardDTO = boardSerivce.get(9L);
         log.info(boardDTO);
+    }
+
+    @Test
+    @Transactional
+    public void testLike() {
+        UserLike userLike = UserLike.builder().build();
+
+        Board board = Board.builder().title("test").content("please...").build();
+        board.addUserLike(userLike);
+
+        boardRepository.save(board);
     }
 }
