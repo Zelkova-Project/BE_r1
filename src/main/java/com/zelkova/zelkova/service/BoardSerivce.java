@@ -1,5 +1,7 @@
 package com.zelkova.zelkova.service;
 
+import java.util.Map;
+
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
@@ -16,7 +18,10 @@ public interface BoardSerivce {
 
     void remove(Long bno);
 
+    Map<String, String> addLike(Long bno);
+    
     PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO);
 
     PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
 }
+

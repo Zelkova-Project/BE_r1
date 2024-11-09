@@ -57,6 +57,11 @@ public class Board {
     @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
+    
+    @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserLike> userLikeList = new ArrayList<>();
+    
 
     public void changeTitle(String title) {
         this.title = title;
@@ -112,8 +117,14 @@ public class Board {
         commentList.add(comment);
     }
 
+    public void addUserLike(UserLike userLike) {
+        userLikeList.add(userLike);
+        userLike.setBoard(this);
+    }
+    
     public void clearList() {
         this.imageList.clear();
     }
 }
+
 
