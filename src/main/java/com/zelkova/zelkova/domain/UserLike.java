@@ -29,8 +29,24 @@ public class UserLike {
     @JsonIgnore
     private Board board;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "comment_cno")
+    @JsonIgnore
+    private Comment comment;
+
+    private String likedUserEmail;
+
     public void setBoard(Board board) {
         this.board = board;
     }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+
+    public void setLikedUserEmail(String email) {
+        this.likedUserEmail = email;
+    }
 }
+
 

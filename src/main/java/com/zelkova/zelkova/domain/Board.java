@@ -110,7 +110,6 @@ public class Board {
             .content(commentDTO.getContent())
             .isDel(commentDTO.isDel())
             .date(commentDTO.getDueDate())
-            .likes(commentDTO.getLikes())
             .board(this)
             .build();
 
@@ -126,5 +125,6 @@ public class Board {
         this.imageList.clear();
     }
 }
+
 
 

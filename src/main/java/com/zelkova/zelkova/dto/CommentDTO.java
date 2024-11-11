@@ -1,6 +1,8 @@
 package com.zelkova.zelkova.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -27,6 +29,14 @@ public class CommentDTO {
 
     private String writer;
 
-    private int likes;
+    @Builder.Default
+    private List<UserLikeDTO> likeList = new ArrayList<>();
+
+    private int likeCount;
+
+    public void addLikeList(UserLikeDTO userLikeDTO) {
+        this.likeList.add(userLikeDTO);
+    }
 }
+
 
