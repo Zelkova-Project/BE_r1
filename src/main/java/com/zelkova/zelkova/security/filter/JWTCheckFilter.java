@@ -44,7 +44,8 @@ public class JWTCheckFilter extends OncePerRequestFilter {
     if (path.startsWith("/api/files/")) {
       return true;
     }
-    if (path.startsWith("/chat-websocket/")) {
+
+    if (path.startsWith("/api/chat-websocket/")) {
       return true;
     }
 

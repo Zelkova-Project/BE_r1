@@ -9,1146 +9,143 @@ nohup: ignoring input
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-11-12T13:49:03.791+09:00  INFO 625823 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Starting ZelkovaApplication v0.0.1-SNAPSHOT using Java 17.0.13 with PID 625823 (/root/BE_r1/build/libs/zelkova-0.0.1-SNAPSHOT.jar started by root in /root/BE_r1)
-2024-11-12T13:49:03.830+09:00  INFO 625823 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-11-12T13:49:06.084+09:00  INFO 625823 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-11-12T13:49:06.307+09:00  INFO 625823 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196 ms. Found 4 JPA repository interfaces.
-2024-11-12T13:49:08.565+09:00  INFO 625823 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-11-12T13:49:08.587+09:00  INFO 625823 --- [zelkova] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-11-12T13:49:08.588+09:00  INFO 625823 --- [zelkova] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-11-12T13:49:08.970+09:00  INFO 625823 --- [zelkova] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-11-12T13:49:08.972+09:00  INFO 625823 --- [zelkova] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4968 ms
-2024-11-12T13:49:10.083+09:00  INFO 625823 --- [zelkova] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-11-12T13:49:10.248+09:00  INFO 625823 --- [zelkova] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-11-12T13:49:10.311+09:00  INFO 625823 --- [zelkova] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-11-12T13:49:11.472+09:00  INFO 625823 --- [zelkova] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-11-12T13:49:11.605+09:00  INFO 625823 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-11-12T13:49:11.821+09:00  INFO 625823 --- [zelkova] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@6be50b35
-2024-11-12T13:49:11.823+09:00  INFO 625823 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-11-12T13:49:14.423+09:00  INFO 625823 --- [zelkova] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-12T16:29:06.747+09:00  INFO 636785 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Starting ZelkovaApplication v0.0.1-SNAPSHOT using Java 17.0.13 with PID 636785 (/root/BE_r1/build/libs/zelkova-0.0.1-SNAPSHOT.jar started by root in /root/BE_r1)
+2024-11-12T16:29:06.750+09:00  INFO 636785 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-11-12T16:29:09.474+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-12T16:29:09.475+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-12T16:29:10.093+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 576 ms. Found 4 JPA repository interfaces.
+2024-11-12T16:29:10.155+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-12T16:29:10.156+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-12T16:29:10.248+09:00  INFO 636785 --- [zelkova] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zelkova.zelkova.repository.CommentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-12T16:29:10.248+09:00  INFO 636785 --- [zelkova] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zelkova.zelkova.repository.UserLikeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-12T16:29:10.249+09:00  INFO 636785 --- [zelkova] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zelkova.zelkova.repository.BoardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-12T16:29:10.250+09:00  INFO 636785 --- [zelkova] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zelkova.zelkova.repository.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-12T16:29:10.250+09:00  INFO 636785 --- [zelkova] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2024-11-12T16:29:12.732+09:00  INFO 636785 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-12T16:29:12.789+09:00  INFO 636785 --- [zelkova] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-12T16:29:12.790+09:00  INFO 636785 --- [zelkova] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-12T16:29:13.169+09:00  INFO 636785 --- [zelkova] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-12T16:29:13.171+09:00  INFO 636785 --- [zelkova] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6278 ms
+2024-11-12T16:29:14.314+09:00  INFO 636785 --- [zelkova] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-12T16:29:14.471+09:00  INFO 636785 --- [zelkova] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-12T16:29:14.652+09:00  INFO 636785 --- [zelkova] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-12T16:29:15.630+09:00  INFO 636785 --- [zelkova] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-12T16:29:15.711+09:00  INFO 636785 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-12T16:29:16.033+09:00  INFO 636785 --- [zelkova] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@464a3430
+2024-11-12T16:29:16.034+09:00  INFO 636785 --- [zelkova] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-12T16:29:19.317+09:00  INFO 636785 --- [zelkova] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     alter table if exists board 
        modify column content MEDIUMTEXT
-2024-11-12T13:49:14.604+09:00  INFO 625823 --- [zelkova] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-11-12T13:49:14.665+09:00  INFO 625823 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : ---------------
-2024-11-12T13:49:14.666+09:00  INFO 625823 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : --------------- uploadPath : /root/BE_r1/upload
-2024-11-12T13:49:14.666+09:00  INFO 625823 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : --------------- filepath : /root/BE_r1/fileupload
-2024-11-12T13:49:15.564+09:00  INFO 625823 --- [zelkova] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-11-12T13:49:17.702+09:00  WARN 625823 --- [zelkova] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-11-12T13:49:17.785+09:00  INFO 625823 --- [zelkova] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2024-11-12T13:49:17.901+09:00  INFO 625823 --- [zelkova] [           main] c.zelkova.zelkova.config.CustomSecurity  : -------------security config ----------
-2024-11-12T13:49:19.445+09:00  INFO 625823 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2024-11-12T13:49:19.483+09:00  INFO 625823 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Started ZelkovaApplication in 16.981 seconds (process running for 18.558)
-2024-11-12T13:49:44.606+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-11-12T13:49:44.606+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-11-12T13:49:44.608+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-11-12T13:49:44.749+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/login
-2024-11-12T13:49:45.101+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : ---------------loadUserByUserName
+2024-11-12T16:29:19.657+09:00  INFO 636785 --- [zelkova] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-12T16:29:19.730+09:00  INFO 636785 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : ---------------
+2024-11-12T16:29:19.731+09:00  INFO 636785 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : --------------- uploadPath : /root/BE_r1/upload
+2024-11-12T16:29:19.731+09:00  INFO 636785 --- [zelkova] [           main] c.zelkova.zelkova.util.CustomFileUtil    : --------------- filepath : /root/BE_r1/fileupload
+2024-11-12T16:29:20.594+09:00  INFO 636785 --- [zelkova] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-12T16:29:23.596+09:00  WARN 636785 --- [zelkova] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-12T16:29:23.714+09:00  INFO 636785 --- [zelkova] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-11-12T16:29:23.869+09:00  INFO 636785 --- [zelkova] [           main] c.zelkova.zelkova.config.CustomSecurity  : -------------security config ----------
+2024-11-12T16:29:26.350+09:00  INFO 636785 --- [zelkova] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-12T16:29:26.352+09:00  INFO 636785 --- [zelkova] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2024-11-12T16:29:26.353+09:00  INFO 636785 --- [zelkova] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@46fdb4d]]
+2024-11-12T16:29:26.353+09:00  INFO 636785 --- [zelkova] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2024-11-12T16:29:27.810+09:00  INFO 636785 --- [zelkova] [           main] com.zelkova.zelkova.ZelkovaApplication   : Started ZelkovaApplication in 22.524 seconds (process running for 24.09)
+2024-11-12T16:29:31.757+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-12T16:29:31.757+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-12T16:29:31.770+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2024-11-12T16:29:31.854+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:29:32.016+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/612/rsjjizgo/websocket
+2024-11-12T16:30:22.105+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/kakao
+2024-11-12T16:30:22.209+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.zelkova.controller.SocialController  : kakao .... 
+2024-11-12T16:30:23.195+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.zelkova.service.MemberServiceImpl    : kakao_account : {profile_nickname_needs_agreement=false, profile_image_needs_agreement=false, profile={nickname=., thumbnail_image_url=http://k.kakaocdn.net/dn/suKTW/btsKyjutb1i/gM3OADboffUbnYpJLUsK20/img_110x110.jpg, profile_image_url=http://k.kakaocdn.net/dn/suKTW/btsKyjutb1i/gM3OADboffUbnYpJLUsK20/img_640x640.jpg, is_default_image=false, is_default_nickname=false}, name_needs_agreement=false, name=이동훈, has_email=true, email_needs_agreement=false, is_email_valid=true, is_email_verified=true, email=fidi2846@naver.com}
 Hibernate: 
     select
         m1_0.email,
         m1_0.is_social,
-        mrl1_0.member_email,
-        mrl1_0.member_role_list,
         m1_0.nickname,
         m1_0.pw 
     from
         member m1_0 
-    left join
-        member_member_role_list mrl1_0 
-            on m1_0.email=mrl1_0.member_email 
     where
         m1_0.email=?
-2024-11-12T13:49:45.486+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.CustomUserDetailsService  : memberDTO ::: MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:49:45.786+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler start
-2024-11-12T13:49:45.788+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : UsernamePasswordAuthenticationToken [Principal=MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER]), Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_USER]]
-2024-11-12T13:49:45.788+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.s.handler.APILoginSuccessHandler   : ---------------------------success handler finish
-2024-11-12T13:49:48.111+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T13:49:48.187+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:49:48.190+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:49:48.190+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:49:48.190+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T13:49:48.286+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.zelkova.controller.BoardController   : test
 Hibernate: 
     select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
+        mrl1_0.member_email,
+        mrl1_0.member_role_list 
     from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
+        member_member_role_list mrl1_0 
     where
-        ull1_0.board_bno=?
-2024-11-12T13:49:49.843+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/1
-2024-11-12T13:49:49.845+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:49:49.846+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:49:49.847+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:49:49.847+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
+        mrl1_0.member_email=?
+2024-11-12T16:30:23.554+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.zelkova.controller.SocialController  : kakao claims.... {isSocial=true, pw=$2a$10$dc20HbAxiOBqmXAY/wdmWOLPrBmYWZUHLfBAdNKP2o9oVgn1uvfNq, nickname=이동훈, accessToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc1NvY2lhbCI6dHJ1ZSwicHciOiIkMmEkMTAkZGMyMEhiQXhpT0JxbVhBWS93ZG1XT0xQckJtWVdaVUhMZkJBZE5LUDJvOW9WZ24xdXZmTnEiLCJuaWNrbmFtZSI6IuydtOuPme2biCIsInJvbGVOYW1lcyI6WyJVU0VSIl0sImVtYWlsIjoiZmlkaTI4NDZAbmF2ZXIuY29tIiwiaWF0IjoxNzMxMzk2NjIzLCJleHAiOjE3MzEzOTcyMjN9.Sl-rx0_OZGOxNrRJhfxOD7vqAJOPwvY1v-bBd1D5qeQ, roleNames=[USER], email=fidi2846@naver.com, refreshToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc1NvY2lhbCI6dHJ1ZSwicHciOiIkMmEkMTAkZGMyMEhiQXhpT0JxbVhBWS93ZG1XT0xQckJtWVdaVUhMZkJBZE5LUDJvOW9WZ24xdXZmTnEiLCJuaWNrbmFtZSI6IuydtOuPme2biCIsImFjY2Vzc1Rva2VuIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjMU52WTJsaGJDSTZkSEoxWlN3aWNIY2lPaUlrTW1Fa01UQWtaR015TUVoaVFYaHBUMEp4YlZoQldTOTNaRzFYVDB4UWNrSnRXVmRhVlVoTVprSkJaRTVMVURKdk9XOVdaMjR4ZFhabVRuRWlMQ0p1YVdOcmJtRnRaU0k2SXV5ZHRPdVBtZTJiaUNJc0luSnZiR1ZPWVcxbGN5STZXeUpWVTBWU0lsMHNJbVZ0WVdsc0lqb2labWxrYVRJNE5EWkFibUYyWlhJdVkyOXRJaXdpYVdGMElqb3hOek14TXprMk5qSXpMQ0psZUhBaU9qRTNNekV6T1RjeU1qTjkuU2wtcngwX09aR094TnJSSmhmeE9EN3ZxQUpPUHd2WTF2LWJCZDFENXFlUSIsInJvbGVOYW1lcyI6WyJVU0VSIl0sImVtYWlsIjoiZmlkaTI4NDZAbmF2ZXIuY29tIiwiaWF0IjoxNzMxMzk2NjIzLCJleHAiOjE3MzE0ODMwMjN9.0PnN_w3B95slhtfrtycoZ7nR2JOej-NMxocRnUKtwCc}
+2024-11-12T16:30:25.859+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:30:25.885+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/777/tpjwnvep/websocket
+2024-11-12T16:30:26.272+09:00  INFO 636785 --- [zelkova] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 2, completed tasks = 11]
+2024-11-12T16:30:29.073+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/member/kakao
+2024-11-12T16:30:29.075+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.zelkova.controller.SocialController  : kakao .... 
+2024-11-12T16:30:29.107+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.zelkova.service.MemberServiceImpl    : kakao_account : {profile_nickname_needs_agreement=false, profile_image_needs_agreement=false, profile={nickname=남병현, thumbnail_image_url=http://k.kakaocdn.net/dn/h3C3H/btsFQuz1rvN/ENZ5k6H3GDAKBXhKmAykck/img_110x110.jpg, profile_image_url=http://k.kakaocdn.net/dn/h3C3H/btsFQuz1rvN/ENZ5k6H3GDAKBXhKmAykck/img_640x640.jpg, is_default_image=false, is_default_nickname=false}, name_needs_agreement=false, name=남병현, has_email=true, email_needs_agreement=false, is_email_valid=true, is_email_verified=true, email=kmi5063@naver.com}
 Hibernate: 
     select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
+        m1_0.email,
+        m1_0.is_social,
+        m1_0.nickname,
+        m1_0.pw 
     from
-        board b1_0 
+        member m1_0 
     where
-        b1_0.bno=?
+        m1_0.email=?
 Hibernate: 
     select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
+        mrl1_0.member_email,
+        mrl1_0.member_role_list 
     from
-        board_image il1_0 
+        member_member_role_list mrl1_0 
     where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T13:49:49.945+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/1
-2024-11-12T13:49:49.947+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:49:49.948+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:49:49.948+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:49:49.948+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T13:49:50.005+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/1
-2024-11-12T13:49:50.007+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:49:50.008+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:49:50.008+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:49:50.008+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T13:50:06.729+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T13:50:06.734+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:50:06.738+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:50:06.742+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:50:06.742+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T13:50:06.851+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-6] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T13:50:06.861+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T13:50:06.862+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-6] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T13:50:06.871+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T13:50:06.897+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/1
-2024-11-12T13:50:06.899+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:50:06.901+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:50:06.901+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:50:06.901+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T13:50:06.920+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/1
-2024-11-12T13:50:06.921+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:50:06.921+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:50:06.921+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:50:06.921+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T13:50:06.935+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/1
-2024-11-12T13:50:06.936+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:50:06.936+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:50:06.936+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:50:06.936+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T13:51:34.003+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T13:51:34.045+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:51:34.046+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:51:34.046+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:51:34.046+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T13:51:34.048+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.zelkova.controller.BoardController   : test
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-2024-11-12T13:51:38.697+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/
-2024-11-12T13:51:38.703+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:51:38.705+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:51:38.706+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:51:38.706+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        board
-        (content, counts, date, is_del, title, upload_file_names, writer) 
-    values
-        (?, ?, ?, ?, ?, ?, ?) 
-    returning bno
-2024-11-12T13:51:38.744+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-1] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T13:51:38.745+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T13:51:38.745+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T13:51:38.746+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T13:51:38.810+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T13:51:38.843+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:51:38.843+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:51:38.843+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:51:38.843+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T13:51:38.844+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.zelkova.controller.BoardController   : test
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-2024-11-12T13:51:55.069+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/
-2024-11-12T13:51:55.072+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:51:55.073+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:51:55.073+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:51:55.073+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        board
-        (content, counts, date, is_del, title, upload_file_names, writer) 
-    values
-        (?, ?, ?, ?, ?, ?, ?) 
-    returning bno
-2024-11-12T13:51:55.084+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-3] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T13:51:55.085+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T13:51:55.085+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T13:51:55.086+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T13:51:55.105+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T13:51:55.106+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T13:51:55.107+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T13:51:55.107+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T13:51:55.108+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T13:51:55.108+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.zelkova.controller.BoardController   : test
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-2024-11-12T13:52:29.391+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
-2024-11-12T13:52:29.393+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T13:56:43.059+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
-2024-11-12T13:56:43.060+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T14:07:50.325+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T14:07:50.329+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:50.334+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:50.334+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:50.334+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T14:07:50.340+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.zelkova.controller.BoardController   : test
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-2024-11-12T14:07:54.609+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/
-2024-11-12T14:07:54.612+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:54.614+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:54.615+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:54.615+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        board
-        (content, counts, date, is_del, title, upload_file_names, writer) 
-    values
-        (?, ?, ?, ?, ?, ?, ?) 
-    returning bno
-2024-11-12T14:07:54.707+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
-2024-11-12T14:07:54.709+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:54.709+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:54.709+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:54.709+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-2024-11-12T14:07:54.720+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.zelkova.controller.BoardController   : test
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    order by
-        b1_0.bno desc 
-    limit
-        ?, ?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:07:55.870+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:07:55.872+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:55.872+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:55.873+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:55.873+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:07:55.890+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:07:55.891+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:55.891+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:55.891+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:55.891+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T14:07:55.908+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:07:55.940+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:07:55.940+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:07:55.940+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:07:55.940+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T14:08:00.748+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T14:08:00.751+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:00.752+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:00.752+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:00.752+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T14:08:00.761+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-4] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T14:08:00.761+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T14:08:00.761+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T14:08:00.765+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T14:08:00.779+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:08:00.780+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:00.780+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:00.780+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:00.780+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:08:00.819+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:08:00.821+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:00.822+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:00.822+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:00.823+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T14:08:00.838+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:08:00.839+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:00.839+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:00.839+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:00.839+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T14:08:02.644+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T14:08:02.647+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:02.647+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:02.648+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:02.648+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T14:08:02.653+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-8] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T14:08:02.660+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T14:08:02.660+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T14:08:02.661+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T14:08:02.674+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:08:02.675+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:02.675+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:02.675+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:02.675+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:08:02.741+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:08:02.743+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:02.744+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:02.744+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:02.744+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T14:08:02.776+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:08:02.777+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:02.777+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:02.777+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:02.777+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T14:08:21.330+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T14:08:21.333+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:21.334+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:21.335+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:21.335+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T14:08:21.339+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-2] o.m.jdbc.message.server.ErrorPacket      : Error: 1364-HY000: Field 'likes' doesn't have a default value
-2024-11-12T14:08:21.340+09:00  WARN 625823 --- [zelkova] [nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1364, SQLState: HY000
-2024-11-12T14:08:21.340+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : (conn=19444) Field 'likes' doesn't have a default value
-2024-11-12T14:08:21.341+09:00 ERROR 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
-2024-11-12T14:08:21.367+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:08:21.368+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:21.368+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:21.368+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:21.368+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:08:21.388+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:08:21.388+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:21.388+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:21.388+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:21.388+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-2024-11-12T14:08:21.406+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:08:21.407+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:08:21.407+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:08:21.407+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:08:21.407+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-2024-11-12T14:09:46.526+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T14:09:46.528+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:46.529+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:46.529+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:46.529+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T14:09:46.568+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:09:46.569+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:46.569+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:46.569+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:46.569+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:09:46.587+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:09:46.588+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:46.588+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:46.588+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:46.588+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
-2024-11-12T14:09:46.617+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:09:46.618+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:46.620+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:46.620+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:46.620+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
-2024-11-12T14:09:58.197+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/
-2024-11-12T14:09:58.201+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:58.201+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:58.201+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:58.201+09:00  INFO 625823 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    insert 
-    into
-        comment
-        (board_bno, content, date, is_del, writer) 
-    values
-        (?, ?, ?, ?, ?) 
-    returning cno
-2024-11-12T14:09:58.220+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/2
-2024-11-12T14:09:58.221+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:58.221+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:58.221+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:58.221+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        il1_0.board_bno,
-        il1_0.file_no,
-        il1_0.file_name,
-        il1_0.file_path,
-        il1_0.ord 
-    from
-        board_image il1_0 
-    where
-        il1_0.board_bno=?
-Hibernate: 
-    select
-        ull1_0.board_bno,
-        ull1_0.lno,
-        ull1_0.comment_cno,
-        ull1_0.liked_user_email 
-    from
-        user_like ull1_0 
-    where
-        ull1_0.board_bno=?
-2024-11-12T14:09:58.254+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/2
-2024-11-12T14:09:58.255+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:58.255+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:58.255+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:58.255+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        c1_0.cno,
-        c1_0.board_bno,
-        c1_0.content,
-        c1_0.date,
-        c1_0.is_del,
-        c1_0.writer 
-    from
-        comment c1_0 
-    where
-        c1_0.board_bno=?
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
-2024-11-12T14:09:58.277+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/comment/likedUserList/2
-2024-11-12T14:09:58.280+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : JWT claims {isSocial=false, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, roleNames=[USER], email=user0@gmail.com, iat=1731386985, exp=1731394185}
-2024-11-12T14:09:58.281+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : ------------------------
-2024-11-12T14:09:58.281+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : MemberDTO(email=user0@gmail.com, pw=$2a$10$4ktszcVm2rnIspAuMbfksuIq72IqyViQ0tWKOk3h2fyFfmHyouBhm, nickname=nickname0, isSocial=false, roleNames=[USER])
-2024-11-12T14:09:58.281+09:00  INFO 625823 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : memberDTO.getAuthorities : [ROLE_USER]
-Hibernate: 
-    select
-        b1_0.bno,
-        b1_0.content,
-        b1_0.counts,
-        b1_0.date,
-        b1_0.is_del,
-        b1_0.title,
-        b1_0.upload_file_names,
-        b1_0.writer 
-    from
-        board b1_0 
-    where
-        b1_0.bno=?
-Hibernate: 
-    select
-        cl1_0.board_bno,
-        cl1_0.cno,
-        cl1_0.content,
-        cl1_0.date,
-        cl1_0.is_del,
-        cl1_0.writer 
-    from
-        comment cl1_0 
-    where
-        cl1_0.board_bno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
-Hibernate: 
-    select
-        ll1_0.comment_cno,
-        ll1_0.lno,
-        ll1_0.board_bno,
-        ll1_0.liked_user_email 
-    from
-        user_like ll1_0 
-    where
-        ll1_0.comment_cno=?
+        mrl1_0.member_email=?
+2024-11-12T16:30:29.117+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.zelkova.controller.SocialController  : kakao claims.... {isSocial=true, pw=$2a$10$Oh2qaARLLlmLS0F7ATduFuBeH4VIC/gdj8CTUB4omnbcZAZBaivJO, nickname=남병현, accessToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc1NvY2lhbCI6dHJ1ZSwicHciOiIkMmEkMTAkT2gycWFBUkxMbG1MUzBGN0FUZHVGdUJlSDRWSUMvZ2RqOENUVUI0b21uYmNaQVpCYWl2Sk8iLCJuaWNrbmFtZSI6IuuCqOuzke2YhCIsInJvbGVOYW1lcyI6WyJVU0VSIl0sImVtYWlsIjoia21pNTA2M0BuYXZlci5jb20iLCJpYXQiOjE3MzEzOTY2MjksImV4cCI6MTczMTM5NzIyOX0.GbzKFe6S5fkTMbnNCy61-raA8ILsjNYUwCpa-xRXTLs, roleNames=[USER], email=kmi5063@naver.com, refreshToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc1NvY2lhbCI6dHJ1ZSwicHciOiIkMmEkMTAkT2gycWFBUkxMbG1MUzBGN0FUZHVGdUJlSDRWSUMvZ2RqOENUVUI0b21uYmNaQVpCYWl2Sk8iLCJuaWNrbmFtZSI6IuuCqOuzke2YhCIsImFjY2Vzc1Rva2VuIjoiZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjMU52WTJsaGJDSTZkSEoxWlN3aWNIY2lPaUlrTW1Fa01UQWtUMmd5Y1dGQlVreE1iRzFNVXpCR04wRlVaSFZHZFVKbFNEUldTVU12WjJScU9FTlVWVUkwYjIxdVltTmFRVnBDWVdsMlNrOGlMQ0p1YVdOcmJtRnRaU0k2SXV1Q3FPdXprZTJZaENJc0luSnZiR1ZPWVcxbGN5STZXeUpWVTBWU0lsMHNJbVZ0WVdsc0lqb2lhMjFwTlRBMk0wQnVZWFpsY2k1amIyMGlMQ0pwWVhRaU9qRTNNekV6T1RZMk1qa3NJbVY0Y0NJNk1UY3pNVE01TnpJeU9YMC5HYnpLRmU2UzVma1RNYm5OQ3k2MS1yYUE4SUxzak5ZVXdDcGEteFJYVExzIiwicm9sZU5hbWVzIjpbIlVTRVIiXSwiZW1haWwiOiJrbWk1MDYzQG5hdmVyLmNvbSIsImlhdCI6MTczMTM5NjYyOSwiZXhwIjoxNzMxNDgzMDI5fQ.lghcEFnNJGdrl8dKMKdVtNiWR0v9qEBV9yHhaMEtWjo}
+2024-11-12T16:30:30.591+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:30:30.740+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/552/p3ic1pvq/websocket
+2024-11-12T16:35:16.290+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:35:16.952+09:00  INFO 636785 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/479/pfpdege0/websocket
+2024-11-12T16:37:27.451+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:37:27.594+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/947/zeke5vom/websocket
+2024-11-12T16:38:04.728+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:38:04.753+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/647/rvjr0kmh/websocket
+2024-11-12T16:38:12.343+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:38:12.481+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/871/heoaesdj/websocket
+2024-11-12T16:39:16.415+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:39:16.552+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-4] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/077/2pauigsg/websocket
+2024-11-12T16:39:44.357+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:39:44.504+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/479/5bhxsqvz/websocket
+2024-11-12T16:42:08.719+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-3] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/info
+2024-11-12T16:42:08.742+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-7] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/chat-websocket/073/wprqswfe/websocket
+2024-11-12T16:44:18.410+09:00  INFO 636785 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-11-12T16:44:18.410+09:00 ERROR 636785 --- [zelkova] [io-8080-exec-10] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T16:44:19.689+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /
+2024-11-12T16:44:19.689+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:00:26.277+09:00  INFO 636785 --- [zelkova] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 10 total, 0 closed abnormally (0 connect failure, 0 send limit, 3 transport error)], stompSubProtocol[processed CONNECT(10)-CONNECTED(10)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 288], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 189], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 1, completed tasks = 440]
+2024-11-12T17:30:26.277+09:00  INFO 636785 --- [zelkova] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 10 total, 0 closed abnormally (0 connect failure, 0 send limit, 3 transport error)], stompSubProtocol[processed CONNECT(10)-CONNECTED(10)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 288], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 189], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 1, completed tasks = 801]
+2024-11-12T17:30:44.183+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
+2024-11-12T17:30:44.211+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-6] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:31:15.557+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
+2024-11-12T17:31:15.560+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-8] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:31:23.675+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
+2024-11-12T17:31:23.676+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-9] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:31:24.361+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
+2024-11-12T17:31:24.362+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-2] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:31:24.892+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : check uri ............ /api/board/list
+2024-11-12T17:31:24.893+09:00 ERROR 636785 --- [zelkova] [nio-8080-exec-1] c.z.z.security.filter.JWTCheckFilter     : JWT ERROR
+2024-11-12T17:39:03.353+09:00  INFO 636785 --- [zelkova] [nio-8080-exec-5] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x050x010x00...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:257) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
