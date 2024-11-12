@@ -44,8 +44,6 @@ public class Board {
 
     private int counts;
 
-    private int likes;
-
     // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -87,9 +85,6 @@ public class Board {
         this.counts += 1;
     }
 
-    public void addLikes() {
-        this.likes += 1;
-    }
 
     public void addImage(BoardImage image) {
         image.setOrd(this.imageList.size());
@@ -125,6 +120,7 @@ public class Board {
         this.imageList.clear();
     }
 }
+
 
 
 

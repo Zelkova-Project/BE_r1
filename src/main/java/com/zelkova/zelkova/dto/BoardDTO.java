@@ -25,7 +25,6 @@ public class BoardDTO {
     private String writer;
     private boolean isDel;
     private int counts;
-    private int likes;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
@@ -39,4 +38,5 @@ public class BoardDTO {
     @Builder.Default
     private List<UserLike> likeList = new ArrayList<>();
 }
+
 
