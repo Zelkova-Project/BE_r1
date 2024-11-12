@@ -44,8 +44,6 @@ public class Board {
 
     private int counts;
 
-    private int likes;
-
     // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -57,6 +55,11 @@ public class Board {
     @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
+    
+    @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserLike> userLikeList = new ArrayList<>();
+    
 
     public void changeTitle(String title) {
         this.title = title;
@@ -82,9 +85,6 @@ public class Board {
         this.counts += 1;
     }
 
-    public void addLikes() {
-        this.likes += 1;
-    }
 
     public void addImage(BoardImage image) {
         image.setOrd(this.imageList.size());
@@ -105,15 +105,22 @@ public class Board {
             .content(commentDTO.getContent())
             .isDel(commentDTO.isDel())
             .date(commentDTO.getDueDate())
-            .likes(commentDTO.getLikes())
             .board(this)
             .build();
 
         commentList.add(comment);
     }
 
+    public void addUserLike(UserLike userLike) {
+        userLikeList.add(userLike);
+        userLike.setBoard(this);
+    }
+    
     public void clearList() {
         this.imageList.clear();
     }
 }
+
+
+
 

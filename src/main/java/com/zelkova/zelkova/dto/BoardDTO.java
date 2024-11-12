@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.zelkova.zelkova.domain.UserLike;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +25,6 @@ public class BoardDTO {
     private String writer;
     private boolean isDel;
     private int counts;
-    private int likes;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
@@ -34,4 +34,9 @@ public class BoardDTO {
 
     @Builder.Default
     private List<String> uploadFileNames = new ArrayList<>();
+
+    @Builder.Default
+    private List<UserLike> likeList = new ArrayList<>();
 }
+
+
