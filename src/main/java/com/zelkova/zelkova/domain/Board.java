@@ -44,6 +44,9 @@ public class Board {
 
     private int counts;
 
+    // 공지, 가정통신, 채용, 후원, 자유게시판
+    private String category;
+
     // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -119,7 +122,12 @@ public class Board {
     public void clearList() {
         this.imageList.clear();
     }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }
+
 
 
 

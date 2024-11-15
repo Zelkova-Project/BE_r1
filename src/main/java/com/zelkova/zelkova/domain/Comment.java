@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -38,6 +39,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "board_bno", nullable = true)
+    @JsonIgnore
     private Board board;
     
     private String writer;
@@ -55,4 +57,5 @@ public class Comment {
         this.likeList.remove(idx);
     }
 }
+
 

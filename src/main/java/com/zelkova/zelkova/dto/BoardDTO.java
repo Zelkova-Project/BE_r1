@@ -23,6 +23,7 @@ public class BoardDTO {
     private String title;
     private String content;
     private String writer;
+    private String category;
     private boolean isDel;
     private int counts;
 
@@ -38,5 +39,6 @@ public class BoardDTO {
     @Builder.Default
     private List<UserLike> likeList = new ArrayList<>();
 }
+
 
 

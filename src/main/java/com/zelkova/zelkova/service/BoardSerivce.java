@@ -5,6 +5,8 @@ import java.util.Map;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
+import com.zelkova.zelkova.dto.PageSearchRequestDTO;
+import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 
 import jakarta.transaction.Transactional;
 
@@ -23,5 +25,10 @@ public interface BoardSerivce {
     PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO);
 
     PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
+
+    PageSearchResponseDTO<BoardDTO> findByTitleContaining(PageSearchRequestDTO pageSearchRequestDTO);
+    
+    PageSearchResponseDTO<BoardDTO> findByContentContaining(PageSearchRequestDTO pageSearchRequestDTO);
 }
+
 

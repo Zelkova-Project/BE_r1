@@ -1,5 +1,4 @@
 package com.zelkova.zelkova.repository;
-
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -24,4 +23,10 @@ public interface BoardRepository extends JpaRepository<Board, Long>{
 
     @Query("select b, bi from Board b left join b.imageList bi where bi.ord = 0 and b.isDel = false")
     Page<Object[]> selectList(Pageable pagebale);
+
+    Page<Board> findByTitleContaining(String title, Pageable pageable);
+    
+    Page<Board> findByContentContaining(String content, Pageable pageable);
+
 }
+

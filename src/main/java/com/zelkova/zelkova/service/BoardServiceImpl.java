@@ -19,6 +19,8 @@ import com.zelkova.zelkova.domain.UserLike;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
+import com.zelkova.zelkova.dto.PageSearchRequestDTO;
+import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.repository.BoardRepository;
 
 import jakarta.transaction.Transactional;
@@ -178,5 +180,57 @@ public class BoardServiceImpl implements BoardSerivce {
 
         return Map.of("RESULT", "SUCCESS");
     }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByTitleContaining(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 제목포함리스트 = boardRepository.findByTitleContaining(keyword, pageable);
+        
+        List<BoardDTO> list = 제목포함리스트.getContent()
+                    .stream()
+                    .map(item -> modelMapper.map(item, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(list.size())
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByContentContaining(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 내용포함리스트 = boardRepository.findByContentContaining(keyword, pageable);
+        
+        List<BoardDTO> list = 내용포함리스트.getContent()
+                    .stream()
+                    .map(item -> modelMapper.map(item, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(list.size())
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+    
 }
+
 

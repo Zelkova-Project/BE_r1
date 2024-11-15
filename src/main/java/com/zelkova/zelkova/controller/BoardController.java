@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
+import com.zelkova.zelkova.dto.PageSearchRequestDTO;
+import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
@@ -39,8 +41,24 @@ public class BoardController {
   // @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // 권한설정
   // @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
   @GetMapping("/list")
-  public PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
-    log.info("test");
+  public Object list(PageRequestDTO pageRequestDTO) {
+    
+    String option = pageRequestDTO.getSearchOption();
+
+    if (!option.isEmpty()) {
+      PageSearchRequestDTO pageSearchRequestDTO = new PageSearchRequestDTO();
+      pageSearchRequestDTO.setKeyword(pageRequestDTO.getKeyword());
+      if (option.equals("title") ) {
+        return searchTitle(pageSearchRequestDTO);
+      } else {
+        return searchContent(pageSearchRequestDTO);
+      }
+    } else {
+      return defaultList(pageRequestDTO);
+    }
+  }
+
+  public PageResponseDTO<BoardDTO> defaultList(PageRequestDTO pageRequestDTO) {
     return boardSerivce.list(pageRequestDTO);
   }
 
@@ -103,5 +121,18 @@ public class BoardController {
   public Map<String, String> addLike(@PathVariable(name = "bno") Long bno) {
     return boardSerivce.addLike(bno);
   }
+
+  public PageSearchResponseDTO<BoardDTO> searchTitle(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByTitleContaining(pageSearchRequestDTO);
+    
+    return result;
+  }
+
+  public PageSearchResponseDTO<BoardDTO> searchContent(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByContentContaining(pageSearchRequestDTO);
+    
+    return result;
+  }
 }
+
 
