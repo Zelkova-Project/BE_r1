@@ -1,6 +1,7 @@
 package com.zelkova.zelkova.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -14,9 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.domain.BoardImage;
+import com.zelkova.zelkova.domain.UserLike;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
+import com.zelkova.zelkova.dto.PageSearchRequestDTO;
+import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.repository.BoardRepository;
 
 import jakarta.transaction.Transactional;
@@ -70,6 +74,8 @@ public class BoardServiceImpl implements BoardSerivce {
                 .content(board.getContent())
                 .dueDate(board.getDate())
                 .uploadFileNames(board.getUploadFileNames())
+                .likeList(board.getUserLikeList())
+                .thumbImageName(board.getThumbImageName())
                 .build();
 
         List<BoardImage> list = board.getImageList();
@@ -162,4 +168,101 @@ public class BoardServiceImpl implements BoardSerivce {
                 .pageRequestDTO(pageRequestDTO)
                 .build();
     }
+
+    @Override
+    public Map<String, String> addLike(Long bno) {
+        Optional<Board> result = boardRepository.findById(bno);
+        Board board = result.orElseThrow();
+
+        UserLike userLike = UserLike.builder().build();
+
+        board.addUserLike(userLike);
+        boardRepository.save(board);
+
+        return Map.of("RESULT", "SUCCESS");
+    }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByTitleContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        String category = pageSearchRequestDTO.getCategory();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 제목포함리스트 = boardRepository.findByTitleContainingAndCategory(keyword, category, pageable);
+        
+        List<BoardDTO> list = 제목포함리스트.getContent()
+                    .stream()
+                    .map(board -> modelMapper.map(board, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(list.size())
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByContentContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        String category = pageSearchRequestDTO.getCategory();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 내용포함리스트 = boardRepository.findByContentContainingAndCategory(keyword, category, pageable);
+        
+        List<BoardDTO> list = 내용포함리스트.getContent()
+                    .stream()
+                    .map(item -> modelMapper.map(item, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(list.size())
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByContentContaining(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 내용포함리스트 = boardRepository.findByContentContaining(keyword, pageable);
+        
+        Long total = 내용포함리스트.getTotalElements();
+        Integer totalcnt = total.intValue();
+
+        List<BoardDTO> list = 내용포함리스트.getContent()
+                    .stream()
+                    .map(item -> modelMapper.map(item, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(totalcnt)
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+    
 }
+
+
+
