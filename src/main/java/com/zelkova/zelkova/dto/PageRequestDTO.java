@@ -13,6 +13,9 @@ import lombok.experimental.SuperBuilder;
 public class PageRequestDTO {
     
     @Builder.Default
+    private String category = "";
+
+    @Builder.Default
     private String searchOption = "";
 
     @Builder.Default

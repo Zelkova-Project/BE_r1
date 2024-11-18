@@ -26,8 +26,10 @@ public interface BoardSerivce {
 
     PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
 
-    PageSearchResponseDTO<BoardDTO> findByTitleContaining(PageSearchRequestDTO pageSearchRequestDTO);
-    
+    PageSearchResponseDTO<BoardDTO> findByTitleContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO);
+
+    PageSearchResponseDTO<BoardDTO> findByContentContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO);
+
     PageSearchResponseDTO<BoardDTO> findByContentContaining(PageSearchRequestDTO pageSearchRequestDTO);
 }
 

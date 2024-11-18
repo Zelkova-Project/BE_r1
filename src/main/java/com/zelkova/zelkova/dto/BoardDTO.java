@@ -26,6 +26,7 @@ public class BoardDTO {
     private String category;
     private boolean isDel;
     private int counts;
+    private String thumbImageName;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dueDate;

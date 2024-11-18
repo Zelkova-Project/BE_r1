@@ -29,8 +29,15 @@ public class PageSearchResponseDTO<T> {
         int page = pageSearchRequestDTO.getPage(); // 현재페이지
         int size = pageSearchRequestDTO.getSize();
 
-        int end = (int)Math.ceil(page / 10) / 10;
-        int start = end - 9;
+        int totalPage = (int)Math.ceil(totalCount / 10.0);
+        int start = (int)Math.floor(page/10.0) * 10 + 1;
+        int end = (int)Math.ceil(page/10.0) * 10;
+
+        if (totalPage < end) {
+            end = totalPage;
+        }
+
+        this.totalPage = totalPage;
 
         boolean prev = start > 10;
         boolean next = totalCount > end;
@@ -53,4 +60,5 @@ public class PageSearchResponseDTO<T> {
         }
     }
 }
+
 

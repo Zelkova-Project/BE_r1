@@ -48,6 +48,17 @@ public class BoardController {
     if (!option.isEmpty()) {
       PageSearchRequestDTO pageSearchRequestDTO = new PageSearchRequestDTO();
       pageSearchRequestDTO.setKeyword(pageRequestDTO.getKeyword());
+      pageSearchRequestDTO.setPage(pageRequestDTO.getPage());
+      pageSearchRequestDTO.setCategory(pageRequestDTO.getCategory());
+
+      if (pageRequestDTO.getCategory().equals("community")) {
+        pageSearchRequestDTO.setSize(9);
+      }
+
+      if (pageSearchRequestDTO.getCategory().equals("")) {
+        return searchWithoutCategory(pageSearchRequestDTO);
+      }
+
       if (option.equals("title") ) {
         return searchTitle(pageSearchRequestDTO);
       } else {
@@ -71,7 +82,7 @@ public class BoardController {
      */
     // List<MultipartFile> list = boardDTO.getFiles();
     // List<String> uploadFileNames = fileUtil.saveFiles(list);
-    List<String> uploadFileNames = boardDTO.getUploadFileNames();
+      List<String> uploadFileNames = boardDTO.getUploadFileNames();
 
     boardDTO.setUploadFileNames(uploadFileNames);
 
@@ -123,16 +134,23 @@ public class BoardController {
   }
 
   public PageSearchResponseDTO<BoardDTO> searchTitle(PageSearchRequestDTO pageSearchRequestDTO) {
-    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByTitleContaining(pageSearchRequestDTO);
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByTitleContainingAndCategory(pageSearchRequestDTO);
+    
+    return result;
+  }
+  
+  public PageSearchResponseDTO<BoardDTO> searchContent(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByContentContainingAndCategory(pageSearchRequestDTO);
     
     return result;
   }
 
-  public PageSearchResponseDTO<BoardDTO> searchContent(PageSearchRequestDTO pageSearchRequestDTO) {
+  public PageSearchResponseDTO<BoardDTO> searchWithoutCategory(PageSearchRequestDTO pageSearchRequestDTO) {
     PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByContentContaining(pageSearchRequestDTO);
     
     return result;
   }
 }
+
 
 

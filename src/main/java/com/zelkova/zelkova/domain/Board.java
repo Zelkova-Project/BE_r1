@@ -46,6 +46,9 @@ public class Board {
 
     // 공지, 가정통신, 채용, 후원, 자유게시판
     private String category;
+    
+    private String thumbImageName;
+    
 
     // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
@@ -125,6 +128,10 @@ public class Board {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public void setThumbImageName(String thumbImageName) {
+        this.thumbImageName = thumbImageName;
     }
 }
 

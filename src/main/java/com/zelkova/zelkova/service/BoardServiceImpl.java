@@ -75,6 +75,7 @@ public class BoardServiceImpl implements BoardSerivce {
                 .dueDate(board.getDate())
                 .uploadFileNames(board.getUploadFileNames())
                 .likeList(board.getUserLikeList())
+                .thumbImageName(board.getThumbImageName())
                 .build();
 
         List<BoardImage> list = board.getImageList();
@@ -182,16 +183,43 @@ public class BoardServiceImpl implements BoardSerivce {
     }
 
     @Override
-    public PageSearchResponseDTO<BoardDTO> findByTitleContaining(PageSearchRequestDTO pageSearchRequestDTO) {
+    public PageSearchResponseDTO<BoardDTO> findByTitleContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO) {
         int page = pageSearchRequestDTO.getPage();
         int size = pageSearchRequestDTO.getSize();
         String keyword = pageSearchRequestDTO.getKeyword();
+        String category = pageSearchRequestDTO.getCategory();
         
         Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
 
-        Page<Board> 제목포함리스트 = boardRepository.findByTitleContaining(keyword, pageable);
+        Page<Board> 제목포함리스트 = boardRepository.findByTitleContainingAndCategory(keyword, category, pageable);
         
         List<BoardDTO> list = 제목포함리스트.getContent()
+                    .stream()
+                    .map(board -> modelMapper.map(board, BoardDTO.class))
+                    .collect(Collectors.toList());
+
+        PageSearchResponseDTO<BoardDTO> pageSearchResponseDTO 
+            = PageSearchResponseDTO.<BoardDTO>withAll()
+                .dtoList(list)
+                .pageSearchRequestDTO(pageSearchRequestDTO)
+                .totalCount(list.size())
+                .build();
+
+        return pageSearchResponseDTO;
+    }
+
+    @Override
+    public PageSearchResponseDTO<BoardDTO> findByContentContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO) {
+        int page = pageSearchRequestDTO.getPage();
+        int size = pageSearchRequestDTO.getSize();
+        String keyword = pageSearchRequestDTO.getKeyword();
+        String category = pageSearchRequestDTO.getCategory();
+        
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.by("bno").descending());
+
+        Page<Board> 내용포함리스트 = boardRepository.findByContentContainingAndCategory(keyword, category, pageable);
+        
+        List<BoardDTO> list = 내용포함리스트.getContent()
                     .stream()
                     .map(item -> modelMapper.map(item, BoardDTO.class))
                     .collect(Collectors.toList());
@@ -216,6 +244,9 @@ public class BoardServiceImpl implements BoardSerivce {
 
         Page<Board> 내용포함리스트 = boardRepository.findByContentContaining(keyword, pageable);
         
+        Long total = 내용포함리스트.getTotalElements();
+        Integer totalcnt = total.intValue();
+
         List<BoardDTO> list = 내용포함리스트.getContent()
                     .stream()
                     .map(item -> modelMapper.map(item, BoardDTO.class))
@@ -225,7 +256,7 @@ public class BoardServiceImpl implements BoardSerivce {
             = PageSearchResponseDTO.<BoardDTO>withAll()
                 .dtoList(list)
                 .pageSearchRequestDTO(pageSearchRequestDTO)
-                .totalCount(list.size())
+                .totalCount(totalcnt)
                 .build();
 
         return pageSearchResponseDTO;

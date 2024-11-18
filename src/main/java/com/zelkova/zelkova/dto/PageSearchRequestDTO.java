@@ -14,6 +14,8 @@ public class PageSearchRequestDTO {
 
     private String keyword;
 
+    private String category;
+
     @Builder.Default
     private int page = 1;
 

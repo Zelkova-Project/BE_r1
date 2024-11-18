@@ -24,9 +24,11 @@ public interface BoardRepository extends JpaRepository<Board, Long>{
     @Query("select b, bi from Board b left join b.imageList bi where bi.ord = 0 and b.isDel = false")
     Page<Object[]> selectList(Pageable pagebale);
 
-    Page<Board> findByTitleContaining(String title, Pageable pageable);
-    
-    Page<Board> findByContentContaining(String content, Pageable pageable);
+    Page<Board> findByTitleContainingAndCategory(String title, String category, Pageable pageable);
 
+    Page<Board> findByContentContainingAndCategory(String content, String category, Pageable pageable);
+
+    Page<Board> findByContentContaining(String content, Pageable pageable);
 }
+
 
