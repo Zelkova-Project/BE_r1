@@ -53,6 +53,10 @@ public class JWTCheckFilter extends OncePerRequestFilter {
      return true;
     }
 
+    if (path.startsWith("/api/comment/")) {
+      return true;
+     }
+
     return false;
   }
 
@@ -101,3 +105,4 @@ public class JWTCheckFilter extends OncePerRequestFilter {
     }
   }
 }
+
