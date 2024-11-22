@@ -36,7 +36,9 @@ public class PageSearchResponseDTO<T> {
         if (totalPage < end) {
             end = totalPage;
         }
-
+        if (end == 0) {
+            end = 2;
+        }
         this.totalPage = totalPage;
 
         boolean prev = start > 10;
@@ -60,5 +62,6 @@ public class PageSearchResponseDTO<T> {
         }
     }
 }
+
 
 
