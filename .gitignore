@@ -33,6 +33,8 @@ out/
 /nbdist/
 /.nb-gradle/
 
+/upload/*
+
 ### VS Code ###
 .vscode/
 
@@ -48,3 +50,5 @@ out/
 *.webp
 
 *.log
+
+upload/

@@ -62,7 +62,8 @@ public class BoardRepositoryTests {
             board.addImageString(UUID.randomUUID().toString() + "_" + "IMAGE1.jpg");
             board.addImageString(UUID.randomUUID().toString() + "_" + "IMAGE2.jpg");
             board.addCounts();
-            board.addLikes();
+
+
             boardRepository.save(board);
         }
 
@@ -198,4 +199,7 @@ public class BoardRepositoryTests {
         BoardDTO boardDTO = boardSerivce.get(9L);
         log.info(boardDTO);
     }
+
 }
+
+

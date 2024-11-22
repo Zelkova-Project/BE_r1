@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
 import com.zelkova.zelkova.dto.PageResponseDTO;
+import com.zelkova.zelkova.dto.PageSearchRequestDTO;
+import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
@@ -40,8 +41,35 @@ public class BoardController {
   // @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // 권한설정
   // @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
   @GetMapping("/list")
-  public PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO) {
-    log.info("test");
+  public Object list(PageRequestDTO pageRequestDTO) {
+    
+    String option = pageRequestDTO.getSearchOption();
+
+    if (!option.isEmpty()) {
+      PageSearchRequestDTO pageSearchRequestDTO = new PageSearchRequestDTO();
+      pageSearchRequestDTO.setKeyword(pageRequestDTO.getKeyword());
+      pageSearchRequestDTO.setPage(pageRequestDTO.getPage());
+      pageSearchRequestDTO.setCategory(pageRequestDTO.getCategory());
+
+      if (pageRequestDTO.getCategory().equals("community")) {
+        pageSearchRequestDTO.setSize(9);
+      }
+
+      if (pageSearchRequestDTO.getCategory().equals("")) {
+        return searchWithoutCategory(pageSearchRequestDTO);
+      }
+
+      if (option.equals("title") ) {
+        return searchTitle(pageSearchRequestDTO);
+      } else {
+        return searchContent(pageSearchRequestDTO);
+      }
+    } else {
+      return defaultList(pageRequestDTO);
+    }
+  }
+
+  public PageResponseDTO<BoardDTO> defaultList(PageRequestDTO pageRequestDTO) {
     return boardSerivce.list(pageRequestDTO);
   }
 
@@ -54,7 +82,7 @@ public class BoardController {
      */
     // List<MultipartFile> list = boardDTO.getFiles();
     // List<String> uploadFileNames = fileUtil.saveFiles(list);
-    List<String> uploadFileNames = boardDTO.getUploadFileNames();
+      List<String> uploadFileNames = boardDTO.getUploadFileNames();
 
     boardDTO.setUploadFileNames(uploadFileNames);
 
@@ -99,4 +127,30 @@ public class BoardController {
     boardSerivce.remove(bno);
     return Map.of("RESULT", "SUCCESS");
   }
+
+  @PutMapping("/addlike/{bno}")
+  public Map<String, String> addLike(@PathVariable(name = "bno") Long bno) {
+    return boardSerivce.addLike(bno);
+  }
+
+  public PageSearchResponseDTO<BoardDTO> searchTitle(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByTitleContainingAndCategory(pageSearchRequestDTO);
+    
+    return result;
+  }
+  
+  public PageSearchResponseDTO<BoardDTO> searchContent(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByContentContainingAndCategory(pageSearchRequestDTO);
+    
+    return result;
+  }
+
+  public PageSearchResponseDTO<BoardDTO> searchWithoutCategory(PageSearchRequestDTO pageSearchRequestDTO) {
+    PageSearchResponseDTO<BoardDTO> result = boardSerivce.findByContentContaining(pageSearchRequestDTO);
+    
+    return result;
+  }
 }
+
+
+

@@ -10,16 +10,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageRequestDTO {
-    
-    @Builder.Default
-    private String category = "";
+public class PageSearchRequestDTO {
 
-    @Builder.Default
-    private String searchOption = "";
+    private String keyword;
 
-    @Builder.Default
-    private String keyword = "";
+    private String category;
 
     @Builder.Default
     private int page = 1;

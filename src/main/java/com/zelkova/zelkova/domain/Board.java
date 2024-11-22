@@ -2,11 +2,13 @@ package com.zelkova.zelkova.domain;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.zelkova.zelkova.dto.CommentDTO;
+
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,7 +44,11 @@ public class Board {
 
     private int counts;
 
-    private int likes;
+    // 공지, 가정통신, 채용, 후원, 자유게시판
+    private String category;
+    
+    private String thumbImageName;
+    
 
     // @ElementCollection // 값타입컬렉션 선언
     @Builder.Default
@@ -51,6 +57,15 @@ public class Board {
 
     @Builder.Default
     private List<String> uploadFileNames = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> commentList = new ArrayList<>();
+    
+    @Builder.Default
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserLike> userLikeList = new ArrayList<>();
+    
 
     public void changeTitle(String title) {
         this.title = title;
@@ -76,9 +91,6 @@ public class Board {
         this.counts += 1;
     }
 
-    public void addLikes() {
-        this.likes += 1;
-    }
 
     public void addImage(BoardImage image) {
         image.setOrd(this.imageList.size());
@@ -93,9 +105,37 @@ public class Board {
 
         addImage(boardImage);
     }
+    
+    public void addComment(CommentDTO commentDTO) {
+        Comment comment = Comment.builder()
+            .content(commentDTO.getContent())
+            .isDel(commentDTO.isDel())
+            .date(commentDTO.getDueDate())
+            .board(this)
+            .build();
 
+        commentList.add(comment);
+    }
+
+    public void addUserLike(UserLike userLike) {
+        userLikeList.add(userLike);
+        userLike.setBoard(this);
+    }
+    
     public void clearList() {
         this.imageList.clear();
     }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setThumbImageName(String thumbImageName) {
+        this.thumbImageName = thumbImageName;
+    }
 }
+
+
+
+
+
