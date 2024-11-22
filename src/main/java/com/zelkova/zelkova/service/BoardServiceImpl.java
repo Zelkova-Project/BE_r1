@@ -261,7 +261,14 @@ public class BoardServiceImpl implements BoardSerivce {
 
         return pageSearchResponseDTO;
     }
+
+    @Override
+    public int getBoardCountByEmail(String email) {
+        int counts = boardRepository.findCountByEmail(email);
+        return counts;
+    }
     
 }
+
 
 
