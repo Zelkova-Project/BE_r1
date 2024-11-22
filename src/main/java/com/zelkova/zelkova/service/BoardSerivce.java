@@ -31,6 +31,9 @@ public interface BoardSerivce {
     PageSearchResponseDTO<BoardDTO> findByContentContainingAndCategory(PageSearchRequestDTO pageSearchRequestDTO);
 
     PageSearchResponseDTO<BoardDTO> findByContentContaining(PageSearchRequestDTO pageSearchRequestDTO);
+
+    int getBoardCountByEmail(String email);
 }
+
 
 

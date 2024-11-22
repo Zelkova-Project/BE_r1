@@ -29,6 +29,19 @@ public interface BoardRepository extends JpaRepository<Board, Long>{
     Page<Board> findByContentContainingAndCategory(String content, String category, Pageable pageable);
 
     Page<Board> findByContentContaining(String content, Pageable pageable);
+
+    @Query(value = 
+        """
+            SELECT count(*) 
+            FROM board b 
+            JOIN member m
+            on b.writer = m.nickname
+            WHERE m.email = :email
+        """
+        , nativeQuery = true
+    )
+    int findCountByEmail(@Param("email") String email);
 }
+
 
 
