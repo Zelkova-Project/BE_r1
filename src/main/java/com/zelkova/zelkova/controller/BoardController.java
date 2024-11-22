@@ -50,6 +50,7 @@ public class BoardController {
       pageSearchRequestDTO.setKeyword(pageRequestDTO.getKeyword());
       pageSearchRequestDTO.setPage(pageRequestDTO.getPage());
       pageSearchRequestDTO.setCategory(pageRequestDTO.getCategory());
+      pageSearchRequestDTO.setSize(pageRequestDTO.getSize());
 
       if (pageRequestDTO.getCategory().equals("community")) {
         pageSearchRequestDTO.setSize(9);
@@ -151,6 +152,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 
