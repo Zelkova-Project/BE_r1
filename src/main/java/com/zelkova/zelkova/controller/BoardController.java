@@ -21,6 +21,8 @@ import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -28,6 +30,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 @RequestMapping("/api/board")
+@Tag(name = "게시글", description = "게시글 API")
 public class BoardController {
 
   private final BoardSerivce boardSerivce;
@@ -41,6 +44,7 @@ public class BoardController {
   // @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // 권한설정
   // @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
   @GetMapping("/list")
+  @Operation(summary = "글리스트 조회", description = "글리스트 조회")
   public Object list(PageRequestDTO pageRequestDTO) {
     
     String option = pageRequestDTO.getSearchOption();
@@ -152,6 +156,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 
