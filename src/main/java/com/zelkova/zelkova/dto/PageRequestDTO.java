@@ -28,4 +28,3 @@ public class PageRequestDTO {
     private int size = 10;
 }
 
-

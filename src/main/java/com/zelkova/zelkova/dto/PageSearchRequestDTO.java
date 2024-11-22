@@ -23,4 +23,3 @@ public class PageSearchRequestDTO {
     private int size = 10;
 }
 
-
