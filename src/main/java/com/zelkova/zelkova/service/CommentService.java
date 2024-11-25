@@ -17,5 +17,8 @@ public interface CommentService {
     Map<String, String> addCommentLike(Long id, String email);
 
     List<List<String>> getLikedUserList(Long id);
+
+    Map<String, String> deleteComment(Long id);
 }
+
 
