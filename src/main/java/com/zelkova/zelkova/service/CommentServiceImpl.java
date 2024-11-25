@@ -154,5 +154,23 @@ public class CommentServiceImpl implements CommentService {
         return likedUserList;
     }
 
+    @Override
+    public Map<String, String> deleteComment(Long id) {
+
+        Boolean existed = commentRepository.existsById(id);
+        
+        if (!existed) {
+            return Map.of("result", "해당하는 댓글이 없습니다.");
+        } else {
+            commentRepository.deleteById(id);
+            Boolean checkExist = commentRepository.existsById(id);
+
+            String result = checkExist ? "삭제실패" : "삭제성공";
+
+            return Map.of("result", result);
+        }
+    }
+
 }
+
 
