@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zelkova.zelkova.dto.BoardDTO;
+import com.zelkova.zelkova.dto.CommonResponse;
 import com.zelkova.zelkova.dto.PageRequestDTO;
-import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.dto.PageSearchRequestDTO;
 import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
+import com.zelkova.zelkova.util.ApiResponseUtil;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,7 +47,7 @@ public class BoardController {
   // @PreAuthorize("hasRole('ROLE_ADMIN')") // 권한설정
   @GetMapping("/list")
   @Operation(summary = "글리스트 조회", description = "글리스트 조회")
-  public Object list(PageRequestDTO pageRequestDTO) {
+  public ResponseEntity<CommonResponse<Object>> list(PageRequestDTO pageRequestDTO) {
     
     String option = pageRequestDTO.getSearchOption();
 
@@ -61,44 +63,49 @@ public class BoardController {
       }
 
       if (pageSearchRequestDTO.getCategory().equals("")) {
-        return searchWithoutCategory(pageSearchRequestDTO);
+        Object result = searchWithoutCategory(pageSearchRequestDTO);
+        return ApiResponseUtil.success(result);
       }
 
       if (option.equals("title") ) {
-        return searchTitle(pageSearchRequestDTO);
+        Object titleResult = searchTitle(pageSearchRequestDTO);
+        return ApiResponseUtil.success(titleResult);
       } else {
-        return searchContent(pageSearchRequestDTO);
+        Object contentResult = searchTitle(pageSearchRequestDTO);
+        return ApiResponseUtil.success(contentResult);
+
       }
     } else {
-      return defaultList(pageRequestDTO);
+      Object defaultResult = defaultList(pageRequestDTO);
+      return ApiResponseUtil.success(defaultResult);
     }
   }
 
-  public PageResponseDTO<BoardDTO> defaultList(PageRequestDTO pageRequestDTO) {
-    return boardSerivce.list(pageRequestDTO);
+  public ResponseEntity<CommonResponse<Object>> defaultList(PageRequestDTO pageRequestDTO) {
+    Object result = boardSerivce.list(pageRequestDTO);
+    return ApiResponseUtil.success(result);
   }
 
   // POST(/api/board/)로 register 등록하기 (리턴은 bno)
   @PostMapping("/")
-  public Map<String, Long> register(BoardDTO boardDTO) {
+  public ResponseEntity<CommonResponse<Object>> register(BoardDTO boardDTO) {
     /**
      * 1. BoardDTO의 물리파일 저장
      * 2. 경로 + 파일명 -> DB에 저장
      */
     // List<MultipartFile> list = boardDTO.getFiles();
     // List<String> uploadFileNames = fileUtil.saveFiles(list);
-      List<String> uploadFileNames = boardDTO.getUploadFileNames();
+    List<String> uploadFileNames = boardDTO.getUploadFileNames();
 
     boardDTO.setUploadFileNames(uploadFileNames);
 
     long bno = boardSerivce.register(boardDTO);
-
-    return Map.of("bno", bno);
+    return ApiResponseUtil.success(bno);
   }
 
   // PUT 수정({bno}) queryString으로 bno 받아서 dto를 만들어서 수정하기 (리턴은 SUCCESS)
   @PutMapping("/{bno}")
-  public Map<String, String> modify(@PathVariable(name = "bno") Long bno, BoardDTO boardDTO) {
+  public ResponseEntity<CommonResponse<Object>> modify(@PathVariable(name = "bno") Long bno, BoardDTO boardDTO) {
     boardDTO.setBno(bno);
 
     BoardDTO oldDTO = boardSerivce.get(bno);
@@ -121,21 +128,25 @@ public class BoardController {
       fileUtil.deleteFiles(deleteFiles);
     }
 
-    return Map.of("RESULT", "SUCCESS");
+    Map<String, String> result = Map.of("RESULT", "SUCCESS");
+
+    return ApiResponseUtil.success(result);
   }
 
   // DELETE 삭제({tno}) queryString으로 bno 받아서 삭제 처리하기
   @DeleteMapping("/{bno}")
-  public Map<String, String> remove(@PathVariable(name = "bno") Long bno) {
+  public ResponseEntity<CommonResponse<Object>> remove(@PathVariable(name = "bno") Long bno) {
     List<String> oldFileNames = boardSerivce.get(bno).getUploadFileNames();
     fileUtil.deleteFiles(oldFileNames);
     boardSerivce.remove(bno);
-    return Map.of("RESULT", "SUCCESS");
+    Map<String, String> result = Map.of("RESULT", "SUCCESS");
+    return ApiResponseUtil.success(result);
   }
 
   @PutMapping("/addlike/{bno}")
-  public Map<String, String> addLike(@PathVariable(name = "bno") Long bno) {
-    return boardSerivce.addLike(bno);
+  public ResponseEntity<CommonResponse<Object>> addLike(@PathVariable(name = "bno") Long bno) {
+    Map<String, String> result = boardSerivce.addLike(bno);
+    return ApiResponseUtil.success(result);
   }
 
   public PageSearchResponseDTO<BoardDTO> searchTitle(PageSearchRequestDTO pageSearchRequestDTO) {
@@ -156,6 +167,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 

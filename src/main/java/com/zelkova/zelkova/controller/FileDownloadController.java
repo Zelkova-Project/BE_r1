@@ -3,12 +3,13 @@ package com.zelkova.zelkova.controller;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.zelkova.zelkova.dto.CommonResponse;
+import com.zelkova.zelkova.util.ApiResponseUtil;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
 import lombok.RequiredArgsConstructor;
@@ -30,12 +31,12 @@ public class FileDownloadController {
 
     // 단일 pdf, excel, hwp 파일 업로드 체크
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity<CommonResponse<Object>> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         log.info("uplaod file >>> " + file);
 
         // Check if the uploaded file is a PDF
         if (file.isEmpty()) {
-            return new ResponseEntity<>("Please select a file to upload.", HttpStatus.BAD_REQUEST);
+            return ApiResponseUtil.error("Please select a file to upload");
         }
         String contentType = file.getContentType();
         String[] checkArray = new String[4];  
@@ -47,12 +48,12 @@ public class FileDownloadController {
         boolean found = Arrays.asList(checkArray).contains(contentType);
 
         if (!found) {
-            return new ResponseEntity<>("Only PDF files are allowed.", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+            return ApiResponseUtil.error("Only PDF files are allowed");
         }
 
         // Save the file using the service
         String filePath = fileUtil.saveFile(file);
-        return new ResponseEntity<>(filePath, HttpStatus.OK);
+        return ApiResponseUtil.success(filePath);
         // return new ResponseEntity<>("File upload failed: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -80,3 +81,4 @@ public class FileDownloadController {
         }
     }
 }
+
