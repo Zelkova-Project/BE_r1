@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.CommonResponse;
 import com.zelkova.zelkova.dto.PageRequestDTO;
+import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.dto.PageSearchRequestDTO;
 import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.service.BoardSerivce;
@@ -81,9 +82,8 @@ public class BoardController {
     }
   }
 
-  public ResponseEntity<CommonResponse<Object>> defaultList(PageRequestDTO pageRequestDTO) {
-    Object result = boardSerivce.list(pageRequestDTO);
-    return ApiResponseUtil.success(result);
+  public PageResponseDTO<BoardDTO> defaultList(PageRequestDTO pageRequestDTO) {
+    return boardSerivce.list(pageRequestDTO);
   }
 
   // POST(/api/board/)로 register 등록하기 (리턴은 bno)
@@ -167,6 +167,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 

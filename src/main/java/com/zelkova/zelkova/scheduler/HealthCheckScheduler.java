@@ -1,5 +1,9 @@
 package com.zelkova.zelkova.scheduler;
 
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Value;
+>>>>>>> bugfix
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +18,12 @@ public class HealthCheckScheduler {
     
     private final RestTemplate restTemplate;
     private final DiscordWebhookService webhookService;
+<<<<<<< HEAD
+=======
+    
+    @Value("${scheduler.enabled:true}")
+    private boolean schedulerEnabled;
+>>>>>>> bugfix
 
     public HealthCheckScheduler(RestTemplate restTemplate, DiscordWebhookService webhookService) {
         this.restTemplate = restTemplate;
@@ -24,6 +34,7 @@ public class HealthCheckScheduler {
     public void checkHealth() {
         String healthEndPoint = "https://namu0005.or.kr/actuator/health";
 
+<<<<<<< HEAD
         try {
             String healthResponse = restTemplate.getForObject(healthEndPoint, String.class);
             log.info("healthResponse >>>>> " + healthResponse);
@@ -35,3 +46,23 @@ public class HealthCheckScheduler {
     }
 }
 
+=======
+        if (schedulerEnabled) {
+            try {
+                String healthResponse = restTemplate.getForObject(healthEndPoint, String.class);
+                log.info("healthResponse >>>>> " + healthResponse);
+                webhookService.sendHealthStatus("켜졌다네");
+            } catch (Exception e) {
+                webhookService.sendHealthStatus("꺼져있다네");
+            }           
+        } else {
+            System.out.println("Health check is disabled in local environment.");
+        }
+
+
+
+    }
+}
+
+
+>>>>>>> bugfix
