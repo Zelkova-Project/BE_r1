@@ -15,12 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.Resource;
 
-import com.zelkova.zelkova.dto.CommonResponse;
 import com.zelkova.zelkova.dto.ImageDTO;
-import com.zelkova.zelkova.util.ApiResponseUtil;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
-import io.swagger.v3.oas.models.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -34,15 +31,14 @@ public class ImageController {
 
   // 이미지만 등록할 때
   @PostMapping("/")
-  public ResponseEntity<CommonResponse<Object>> register(ImageDTO imageDTO) {
+  public Map<String, List<String>> register(ImageDTO imageDTO) {
     List<MultipartFile> list = imageDTO.getFiles();
 
     List<String> uploadFileNames = fileUtil.saveFiles(list);
 
     imageDTO.setUploadFileNames(uploadFileNames);
 
-    Map<String, List<String>> result =  Map.of("imageNames", uploadFileNames);
-    return ApiResponseUtil.success(result);
+    return Map.of("imageNames", uploadFileNames);
   }
 
     // 이미지만 등록할 때
@@ -55,7 +51,7 @@ public class ImageController {
     // }
 
   @PostMapping("/webp/")
-  public ResponseEntity<CommonResponse<Object>> registerWebp(@RequestParam("files") List<MultipartFile> files) throws IOException {
+  public List<String> registerWebp(@RequestParam("files") List<MultipartFile> files) throws IOException {
 
     String webpName = "";
 
@@ -67,14 +63,13 @@ public class ImageController {
       loadedFileNames.add(webpName);
     }
     
-    List<String> list = loadedFileNames;
-    return ApiResponseUtil.success(list);
+    return loadedFileNames;
   }
 
   @GetMapping("/view/{filename}")
-  public ResponseEntity<CommonResponse<Object>> viewFile(@PathVariable(name = "filename") String filename) {
+  public ResponseEntity<Resource> viewFile(@PathVariable(name = "filename") String filename) {
     ResponseEntity<Resource> resource = fileUtil.getFile(filename);
-    return ApiResponseUtil.success(resource);
+    return resource;
   }
 }
 
