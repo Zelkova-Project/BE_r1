@@ -24,14 +24,13 @@ public class HealthCheckScheduler {
         this.webhookService = webhookService;
     }
 
-    @Scheduled(fixedRate = 900000)
+    @Scheduled(fixedRate = 1200000)
     public void checkHealth() {
         String healthEndPoint = "https://namu0005.or.kr/actuator/health";
 
         if (schedulerEnabled) {
             try {
                 String healthResponse = restTemplate.getForObject(healthEndPoint, String.class);
-                log.info("healthResponse >>>>> " + healthResponse);
                 webhookService.sendHealthStatus("켜졌다네");
             } catch (Exception e) {
                 webhookService.sendHealthStatus("꺼져있다네");
@@ -44,6 +43,3 @@ public class HealthCheckScheduler {
 
     }
 }
-
-
-

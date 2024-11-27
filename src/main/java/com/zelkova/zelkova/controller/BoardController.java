@@ -40,8 +40,9 @@ public class BoardController {
   private final CustomFileUtil fileUtil;
 
   @GetMapping("/{bno}")
-  public BoardDTO get(@PathVariable(name = "bno") Long bno) {
-    return boardSerivce.get(bno);
+  public ResponseEntity<CommonResponse<Object>> get(@PathVariable(name = "bno") Long bno) {
+    BoardDTO dto = boardSerivce.get(bno);
+    return ApiResponseUtil.success(dto);
   }
 
   // @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // 권한설정
@@ -167,6 +168,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 
