@@ -50,5 +50,5 @@ out/
 *.webp
 
 *.log
-
+fileupload/
 upload/
