@@ -72,6 +72,7 @@ public class BoardServiceImpl implements BoardSerivce {
                 .writer(board.getWriter())
                 .title(board.getTitle())
                 .content(board.getContent())
+                .category(board.getCategory())
                 .dueDate(board.getDate())
                 .uploadFileNames(board.getUploadFileNames())
                 .likeList(board.getUserLikeList())
@@ -269,6 +270,7 @@ public class BoardServiceImpl implements BoardSerivce {
     }
     
 }
+
 
 
 
