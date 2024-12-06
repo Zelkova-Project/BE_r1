@@ -50,6 +50,10 @@ public class CommentController {
         String authHeaderStr = authorization;
 
         String accessToken = authHeaderStr.substring(7);
+        
+        log.debug(">>>>>>>>authHeaderStr " + authHeaderStr);
+        log.debug(">>>>>>>>accessToken " + accessToken);
+
         Map<String, Object> claims = JWTUtil.validateToken(accessToken);
 
         String email = (String) claims.get("email");
@@ -77,6 +81,7 @@ public class CommentController {
     }
     
 }
+
 
 
 
