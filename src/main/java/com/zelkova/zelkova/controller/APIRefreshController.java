@@ -2,8 +2,9 @@ package com.zelkova.zelkova.controller;
 
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zelkova.zelkova.util.CustomJWTException;
@@ -17,8 +18,8 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class APIRefreshController {
 
- @RequestMapping("/api/member/refresh")
- public Map<String, Object> refresh(@RequestHeader("Authorization") String authHeader, String refreshToken) {
+ @PostMapping("/api/member/refresh")
+ public Map<String, Object> refresh(@RequestHeader("Authorization") String authHeader, @RequestBody String refreshToken) {
   if (refreshToken == null) {
    throw new CustomJWTException("NULL_REFRESH");
   }
@@ -31,6 +32,9 @@ public class APIRefreshController {
 
   // ACCESS TOKEN 살아있으면 그대로 리턴
   if (checkExpiredToken(accessToken) == false) {
+    if (malformedToken(accessToken)) {
+      return Map.of("error", "malforemd");
+    }
    return Map.of("accessToken", accessToken, "refreshToken", refreshToken);
   }
 
@@ -68,4 +72,21 @@ public class APIRefreshController {
   return false;
  }
 
+ private boolean malformedToken(String token) {
+  log.debug("malformed checking >>>> " + token);
+
+  try {
+    JWTUtil.validateToken(token);
+  } catch (CustomJWTException e) {
+    log.debug("in malformed msg >>>> " + e.getMessage());
+
+    if (e.getMessage().equals("malformed")) {
+      return true;
+    }
+  }
+
+  return false;
+ }
+
 }
+
