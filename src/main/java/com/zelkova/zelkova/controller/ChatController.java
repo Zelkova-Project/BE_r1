@@ -2,7 +2,6 @@ package com.zelkova.zelkova.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
@@ -17,9 +16,8 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 @Log4j2
 public class ChatController {
-	
-  private final SimpMessagingTemplate template;
 
+    private final SimpMessagingTemplate template;
 
     @Autowired
     private ChatPublisher chatPublisher;
@@ -35,27 +33,25 @@ public class ChatController {
         chatPublisher.sendMessage("/topic/" + chatDTO.getRoomName(), chatDTO);
     }
 
-    @MessageMapping("/joinChatRoom")  
+    @MessageMapping("/joinChatRoom")
     public void joinChatRoom(String chatRoomId) {
-        chatSubscriber.sendChatHistory(chatRoomId, 10);  // Send the last 10 messages from the chat room
+        chatSubscriber.sendChatHistory("/topic/" + chatRoomId, 10); // Send the last 10 messages from the chat room
     }
 
+    // @MessageMapping("/sendMessage/{roomName}")
+    // @SendTo("/topic/{roomName}")
+    // public ChatDTO sendMessage2(ChatDTO message) {
+    // return message; // Message logic can be added
+    // }
 
+    // @MessageMapping("/deliver")
+    // public void deliver(ChatDTO chatDTO) {
+    // template.convertAndSend("/topic/" + chatDTO.getRoomName(), chatDTO);
+    // }
 
-//  @MessageMapping("/sendMessage/{roomName}")
-//  @SendTo("/topic/{roomName}")
-//  public ChatDTO sendMessage2(ChatDTO message) {
-//    return message; // Message logic can be added
-//  }
- 
-//  @MessageMapping("/deliver")
-// public void deliver(ChatDTO chatDTO) {
-//   template.convertAndSend("/topic/" + chatDTO.getRoomName(), chatDTO);
-// }
-
-//  @MessageMapping("/enter")
-//  public void sending(ChatDTO chatDTO) {
-//    log.info(">>>>>>");
-//   template.convertAndSend("/topic/" + chatDTO.getRoomName(), chatDTO);
-//  }
+    // @MessageMapping("/enter")
+    // public void sending(ChatDTO chatDTO) {
+    // log.info(">>>>>>");
+    // template.convertAndSend("/topic/" + chatDTO.getRoomName(), chatDTO);
+    // }
 }
