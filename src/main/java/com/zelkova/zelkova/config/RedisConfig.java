@@ -7,7 +7,7 @@ import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
-import com.zelkova.zelkova.service.RedisSubscriber;
+import com.zelkova.zelkova.service.redis.ChatSubscriber;
 
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -24,8 +24,8 @@ public class RedisConfig {
  }
 
  @Bean
- MessageListenerAdapter listenerAdapter(RedisSubscriber subscriber) {
-  return new MessageListenerAdapter(subscriber, "receiveMessage");
+ MessageListenerAdapter listenerAdapter(ChatSubscriber chatSubscriber) {
+  return new MessageListenerAdapter(chatSubscriber, "onMessage");
  }
 
  @Bean
