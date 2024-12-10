@@ -73,7 +73,7 @@ public class BoardController {
         Object titleResult = searchTitle(pageSearchRequestDTO);
         return ApiResponseUtil.success(titleResult);
       } else {
-        Object contentResult = searchTitle(pageSearchRequestDTO);
+        Object contentResult = searchContent(pageSearchRequestDTO);
         return ApiResponseUtil.success(contentResult);
 
       }
@@ -168,6 +168,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 
