@@ -30,7 +30,10 @@ public class PageSearchResponseDTO<T> {
         int size = pageSearchRequestDTO.getSize();
 
         int totalPage = (int)Math.ceil(totalCount / size);
-        int start = (int)Math.floor(page/10.0) * 10 + 1;
+
+        int blockSize = (int)Math.ceil(page / 10.0);
+        int start = (blockSize - 1) * 10 + 1;
+
         int end = (int)Math.ceil(page/10.0) * 10;
 
         if (totalPage < end) {
@@ -42,13 +45,13 @@ public class PageSearchResponseDTO<T> {
         this.totalPage = totalPage;
 
         boolean prev = start > 10;
-        boolean next = totalCount > end;
+        boolean next = totalCount > ((end + 1) * 10);
 
         this.prev = prev;
         this.next = next;
         this.current = page;
         
-        List<Integer> pageNumList = IntStream.range(start, end).boxed().collect(Collectors.toList());
+        List<Integer> pageNumList = IntStream.range(start, end + 1).boxed().collect(Collectors.toList());
         this.pageNumList = pageNumList;
         
         this.totalCount = totalCount;
@@ -62,6 +65,7 @@ public class PageSearchResponseDTO<T> {
         }
     }
 }
+
 
 
 

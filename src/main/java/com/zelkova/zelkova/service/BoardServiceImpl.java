@@ -203,7 +203,7 @@ public class BoardServiceImpl implements BoardSerivce {
             = PageSearchResponseDTO.<BoardDTO>withAll()
                 .dtoList(list)
                 .pageSearchRequestDTO(pageSearchRequestDTO)
-                .totalCount(list.size())
+                .totalCount((int)제목포함리스트.getTotalElements())
                 .build();
 
         return pageSearchResponseDTO;
@@ -270,6 +270,7 @@ public class BoardServiceImpl implements BoardSerivce {
     }
     
 }
+
 
 
 
