@@ -3,10 +3,12 @@ package com.zelkova.zelkova.domain;
 import java.util.List;
 import java.util.ArrayList;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +36,9 @@ public class Member {
  @Builder.Default
  private List<MemberRole> memberRoleList = new ArrayList<>();
 
+ @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+ private List<Friend> friendList = new ArrayList<>();
+
  public void addRole(MemberRole memberRole) {
   memberRoleList.add(memberRole);
  }
@@ -52,5 +57,13 @@ public class Member {
 
  public void changeSocial(boolean isSocial) {
   this.isSocial = isSocial;
+ }
+
+ public void addFriend(Friend friend) {
+  this.friendList.add(friend);
+ }
+
+ public void removeFriendList(int idx) {
+  this.friendList.remove(idx);
  }
 }
