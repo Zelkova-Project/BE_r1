@@ -3,6 +3,7 @@ package com.zelkova.zelkova.service.redis;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,17 @@ public class RedisMessageService {
     
     // Fetch the most recent N messages from the chat room
     public List<String> getRecentMessages(String chatRoomId, int count) {
-        String key = "chatRoom:" + chatRoomId + ":messages";  // Redis key for the chat room's message list
-        return redisTemplate.opsForList().range(key, 0, count - 1);  // Fetch messages from the list
+        String key = "chatRoom:" + chatRoomId + ":messages";
+        ListOperations list = redisTemplate.opsForList();
+        Long size = list.size(key);
+
+        int start = 0;
+
+        if (size > 10) {
+            start = (int)(size - 10L);
+        }
+
+        return redisTemplate.opsForList().range(key, start, size); 
     }
 }
+
