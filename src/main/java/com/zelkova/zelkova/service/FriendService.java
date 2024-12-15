@@ -1,6 +1,7 @@
 package com.zelkova.zelkova.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.zelkova.zelkova.domain.Friend;
 
@@ -11,7 +12,7 @@ public interface FriendService {
 
  public List<Friend> getFriends(String accessToken);
 
- public void addFriend(String accessToken, String nickname);
+ public Map<String, String> addFriend(String accessToken, String nickname);
 
- public void delFriend(String accessToken, String nickname);
+ public Map<String, String> delFriend(String accessToken, String nickname);
 }

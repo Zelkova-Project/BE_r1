@@ -36,7 +36,7 @@ public class Member {
  @Builder.Default
  private List<MemberRole> memberRoleList = new ArrayList<>();
 
- @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+ @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
  private List<Friend> friendList = new ArrayList<>();
 
  public void addRole(MemberRole memberRole) {
@@ -61,6 +61,7 @@ public class Member {
 
  public void addFriend(Friend friend) {
   this.friendList.add(friend);
+  friend.setMember(this);
  }
 
  public void removeFriendList(int idx) {
