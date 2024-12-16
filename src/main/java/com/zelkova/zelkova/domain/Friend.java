@@ -1,6 +1,7 @@
 package com.zelkova.zelkova.domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -46,5 +47,13 @@ public class Friend {
 
  public void setMember(Member member) {
   this.member = member;
+ }
+
+ public String getTime() {
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+  if (time == null) {
+   return null;
+  }
+  return time.format(formatter);
  }
 }

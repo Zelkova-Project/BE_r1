@@ -40,7 +40,7 @@ public class FriendServiceImpl implements FriendService {
     Member 내정보 = res.orElseThrow(() -> new IllegalArgumentException()); // 나
 
     Optional<Member> friendRes = memberRepository.findByNickname(nickname);
-    Member 친구정보 = friendRes.orElseThrow(() -> new IllegalArgumentException());
+    Member 친구정보 = friendRes.orElseThrow(() -> new IllegalArgumentException("유저가 없습니다."));
 
     List<Friend> list = 내정보.getFriendList();
 
