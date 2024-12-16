@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableJpaAuditing // @CreatedDate, @LastModifiedDate
+@EnableJpaAuditing // @CreatedDate,@LastModifiedDate
 public class ZelkovaApplication {
 
 	public static void main(String[] args) {
