@@ -26,6 +26,8 @@ public class MemberDTO extends User {
 
   private boolean isSocial;
 
+  private String profileImageName;
+
   private List<String> roleNames = new ArrayList<>();
 
   // Security에서의 회원을 다루는 객체인 "User"은 password, username, authority 등이 있다.
@@ -49,7 +51,9 @@ public class MemberDTO extends User {
     dataMap.put("nickname", nickname);
     dataMap.put("isSocial", isSocial);
     dataMap.put("roleNames", roleNames);
+    dataMap.put("profileImageName", profileImageName);
 
     return dataMap;
   }
 }
+
