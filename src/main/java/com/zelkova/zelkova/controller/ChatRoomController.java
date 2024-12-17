@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/api/chat")
 public class ChatRoomController {
@@ -17,6 +19,7 @@ public class ChatRoomController {
   private StringRedisTemplate stringRedisTemplate;
 
   @GetMapping("/rooms")
+  @Operation(summary = "현재 갖고 있는 채팅방 조회", description = "현재 갖고 있는 채팅방 조회")
   public Set<String> getRooms() {
     Set<String> rooms = stringRedisTemplate.keys("chatRoom:*:messages");
 
@@ -32,3 +35,4 @@ public class ChatRoomController {
         .collect(Collectors.toSet());
   }
 }
+

@@ -40,6 +40,7 @@ public class BoardController {
   private final CustomFileUtil fileUtil;
 
   @GetMapping("/{bno}")
+  @Operation(summary = "글 단건 조회", description = "글 단건 조회")
   public ResponseEntity<CommonResponse<Object>> get(@PathVariable(name = "bno") Long bno) {
     BoardDTO dto = boardSerivce.get(bno);
     return ApiResponseUtil.success(dto);
@@ -89,6 +90,7 @@ public class BoardController {
 
   // POST(/api/board/)로 register 등록하기 (리턴은 bno)
   @PostMapping("/")
+  @Operation(summary = "글 등록", description = "글 등록")
   public ResponseEntity<CommonResponse<Object>> register(BoardDTO boardDTO) {
     /**
      * 1. BoardDTO의 물리파일 저장
@@ -106,6 +108,7 @@ public class BoardController {
 
   // PUT 수정({bno}) queryString으로 bno 받아서 dto를 만들어서 수정하기 (리턴은 SUCCESS)
   @PutMapping("/{bno}")
+  @Operation(summary = "글 수정", description = "글 수정")
   public ResponseEntity<CommonResponse<Object>> modify(@PathVariable(name = "bno") Long bno, BoardDTO boardDTO) {
     boardDTO.setBno(bno);
 
@@ -136,6 +139,7 @@ public class BoardController {
 
   // DELETE 삭제({tno}) queryString으로 bno 받아서 삭제 처리하기
   @DeleteMapping("/{bno}")
+  @Operation(summary = "글 삭제", description = "글 삭제")
   public ResponseEntity<CommonResponse<Object>> remove(@PathVariable(name = "bno") Long bno) {
     List<String> oldFileNames = boardSerivce.get(bno).getUploadFileNames();
     fileUtil.deleteFiles(oldFileNames);
@@ -168,6 +172,7 @@ public class BoardController {
     return result;
   }
 }
+
 
 
 
