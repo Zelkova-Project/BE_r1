@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.domain.BoardImage;
+import com.zelkova.zelkova.domain.Member;
 import com.zelkova.zelkova.domain.UserLike;
 import com.zelkova.zelkova.dto.BoardDTO;
 import com.zelkova.zelkova.dto.PageRequestDTO;
@@ -22,6 +23,7 @@ import com.zelkova.zelkova.dto.PageResponseDTO;
 import com.zelkova.zelkova.dto.PageSearchRequestDTO;
 import com.zelkova.zelkova.dto.PageSearchResponseDTO;
 import com.zelkova.zelkova.repository.BoardRepository;
+import com.zelkova.zelkova.repository.MemberRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +37,7 @@ public class BoardServiceImpl implements BoardSerivce {
 
     private final ModelMapper modelMapper;
     private final BoardRepository boardRepository;
+    private final MemberRepository memberRepository;
 
     @Override
     public Long register(BoardDTO boardDTO) {
@@ -61,7 +64,13 @@ public class BoardServiceImpl implements BoardSerivce {
 
         Board board = result.orElseThrow();
 
+        String nickname = board.getWriter();
+        Optional<Member> memberResult = memberRepository.findByNickname(nickname);
+        Member member = memberResult.orElseThrow(() -> new IllegalArgumentException());
+        String profileImageName = member.getProfileImageName();
+
         BoardDTO boardDTO = entityToDTO(board);
+        boardDTO.setProfileImageName(profileImageName);
 
         return boardDTO;
     }
@@ -270,6 +279,7 @@ public class BoardServiceImpl implements BoardSerivce {
     }
     
 }
+
 
 
 

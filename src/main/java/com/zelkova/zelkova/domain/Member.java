@@ -31,6 +31,8 @@ public class Member {
 
  private boolean isSocial;
 
+ private String profileImageName;
+
  // 값 타입 객체. 테이블로 따로 관리. LazyLoading 형식(접근 필요없으면 쿼리x)
  @ElementCollection(fetch = FetchType.LAZY)
  @Builder.Default
@@ -67,4 +69,9 @@ public class Member {
  public void removeFriendList(int idx) {
   this.friendList.remove(idx);
  }
+
+ public void setProfileImageName(String profileImageName) {
+    this.profileImageName = profileImageName;
+ }
 }
+

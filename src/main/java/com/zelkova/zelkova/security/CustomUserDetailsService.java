@@ -39,8 +39,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     member.isSocial(),
     member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()));
 
+  memberDTO.setProfileImageName(member.getProfileImageName());
+
   log.info("memberDTO ::: " + memberDTO);
   return memberDTO;
  }
 
 }
+
