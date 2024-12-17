@@ -13,6 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.zelkova.zelkova.domain.Member;
 import com.zelkova.zelkova.domain.MemberRole;
 import com.zelkova.zelkova.dto.MemberDTO;
+import com.zelkova.zelkova.dto.ProfileDTO;
 import com.zelkova.zelkova.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -114,4 +115,25 @@ public class MemberServiceImpl implements MemberService {
     return member;
   }
 
+  @Override
+  public Map<String, String> saveProfileImage(ProfileDTO profileDTO) {
+    String email = profileDTO.getEmail();
+    Optional<Member> res = memberRepository.findById(email);
+    Member member = res.orElseThrow(() -> new IllegalArgumentException());
+
+    member.setProfileImageName(profileDTO.getProfileImageName());
+
+    memberRepository.save(member);
+
+    return Map.of("result", "success");
+  }
+
+  @Override
+  public String getProfileImageName(String email) {
+    Optional<Member> res = memberRepository.findById(email);
+    Member member = res.orElseThrow(() -> new IllegalArgumentException());
+    return member.getProfileImageName();
+  }
+
 }
+

@@ -2,7 +2,9 @@ package com.zelkova.zelkova.service;
 
 import com.zelkova.zelkova.domain.Member;
 import com.zelkova.zelkova.dto.MemberDTO;
+import com.zelkova.zelkova.dto.ProfileDTO;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import jakarta.transaction.Transactional;
@@ -17,6 +19,12 @@ public interface MemberService {
         member.getPw(),
         member.getNickname(),
         member.isSocial(),
-        member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()));
+        member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList())
+    );
   };
+
+  Map<String, String> saveProfileImage(ProfileDTO profileDTO);
+
+  String getProfileImageName(String email);
 }
+
