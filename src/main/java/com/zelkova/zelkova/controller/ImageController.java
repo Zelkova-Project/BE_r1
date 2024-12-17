@@ -18,6 +18,7 @@ import org.springframework.core.io.Resource;
 import com.zelkova.zelkova.dto.ImageDTO;
 import com.zelkova.zelkova.util.CustomFileUtil;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -31,6 +32,7 @@ public class ImageController {
 
   // 이미지만 등록할 때
   @PostMapping("/")
+  @Operation(summary = "이미지 등록", description = "이미지 등록")
   public Map<String, List<String>> register(ImageDTO imageDTO) {
     List<MultipartFile> list = imageDTO.getFiles();
 
@@ -51,6 +53,7 @@ public class ImageController {
     // }
 
   @PostMapping("/webp/")
+  @Operation(summary = "webp로 이미지 등록", description = "webp로 이미지 등록")
   public List<String> registerWebp(@RequestParam("files") List<MultipartFile> files) throws IOException {
 
     String webpName = "";
@@ -67,9 +70,11 @@ public class ImageController {
   }
 
   @GetMapping("/view/{filename}")
+  @Operation(summary = "이미지 경로 조회", description = "이미지 경로 조회")
   public ResponseEntity<Resource> viewFile(@PathVariable(name = "filename") String filename) {
     ResponseEntity<Resource> resource = fileUtil.getFile(filename);
     return resource;
   }
 }
+
 

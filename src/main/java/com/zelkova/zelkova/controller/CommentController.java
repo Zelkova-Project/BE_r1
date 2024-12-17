@@ -9,6 +9,7 @@ import com.zelkova.zelkova.service.CommentService;
 import com.zelkova.zelkova.util.ApiResponseUtil;
 import com.zelkova.zelkova.util.JWTUtil;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -33,18 +34,21 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping("/{bno}")
+    @Operation(summary = "댓글 조회", description = "게시글 번호로 댓글 조회")
     public ResponseEntity<CommonResponse<Object>> get(@PathVariable(name = "bno") Long bno) {
         List<CommentDTO> list = commentService.get(bno);
         return ApiResponseUtil.success(list);
     }
 
     @PostMapping("/")
+    @Operation(summary = "댓글 등록", description = "댓글 등록")
     public ResponseEntity<CommonResponse<Object>> register(@RequestBody CommentDTO commentDTO) {
         Long cno = commentService.register(commentDTO);
         return ApiResponseUtil.success(cno);
     }
 
     @PutMapping("/like/{id}")
+    @Operation(summary = "댓글 좋아요 등록", description = "댓글 seq로 좋아요 등록")
     public ResponseEntity<CommonResponse<Object>> addCommentLike(@RequestHeader("Authorization") String authorization, @PathVariable Long id) {
         // [START] User Identifying 
         String authHeaderStr = authorization;
@@ -66,6 +70,7 @@ public class CommentController {
     }
 
     @GetMapping("/likedUserList/{bid}")
+    @Operation(summary = "댓글의 좋아요 리스트", description = "댓글 전체의 좋아요 전체 리스트 조회")
     public ResponseEntity<CommonResponse<Object>> getLikedUserList(@PathVariable(name = "bid") Long bid) {
         // board id를 넣어 조회하면
         // board에 존재하는 댓글의 좋아요를 누른 이메일만 뽑아서 리턴
@@ -75,12 +80,14 @@ public class CommentController {
     }
 
     @DeleteMapping("/{bno}")
+    @Operation(summary = "댓글 삭제", description = "댓글 삭제")
     public ResponseEntity<CommonResponse<Object>> deleteComment(@PathVariable Long bno) {
         Map<String, String> result = commentService.deleteComment(bno);
         return ApiResponseUtil.success(result);
     }
     
 }
+
 
 
 
