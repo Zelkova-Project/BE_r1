@@ -29,6 +29,8 @@ public class CommentDTO {
 
     private String writer;
 
+    private String profileImageName;
+
     @Builder.Default
     private List<UserLikeDTO> likeList = new ArrayList<>();
 
@@ -38,5 +40,6 @@ public class CommentDTO {
         this.likeList.add(userLikeDTO);
     }
 }
+
 
 

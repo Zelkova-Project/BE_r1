@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.zelkova.zelkova.domain.Board;
 import com.zelkova.zelkova.domain.Comment;
+import com.zelkova.zelkova.domain.Member;
 import com.zelkova.zelkova.domain.UserLike;
 import com.zelkova.zelkova.dto.CommentDTO;
+import com.zelkova.zelkova.dto.MemberDTO;
 import com.zelkova.zelkova.dto.UserLikeDTO;
 import com.zelkova.zelkova.repository.BoardRepository;
 import com.zelkova.zelkova.repository.CommentRepository;
@@ -54,15 +57,28 @@ public class CommentServiceImpl implements CommentService {
     // .build();
     // }
 
+    private MemberDTO entityToMemberDTO(Member member) {
+        return new MemberDTO(
+            member.getEmail(),
+            member.getPw(),
+            member.getNickname(),
+            member.isSocial(),
+            member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()),
+            member.getProfileImageName()
+        );
+    }
+
     private CommentDTO entityToDTO(Comment comment) {
         CommentDTO commentDTO = CommentDTO.builder()
                 .cno(comment.getCno())
                 .content(comment.getContent())
                 .dueDate(comment.getDate())
                 .bno(comment.getBoard().getBno())
-                .writer(comment.getWriter())
                 .build();
-
+        
+        MemberDTO mDTO = entityToMemberDTO(comment.getMember());
+        commentDTO.setProfileImageName(mDTO.getProfileImageName());
+        
         return commentDTO;
     }
 
@@ -172,5 +188,6 @@ public class CommentServiceImpl implements CommentService {
     }
 
 }
+
 
 
