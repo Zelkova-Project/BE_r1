@@ -37,7 +37,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     member.getPw(),
     member.getNickname(),
     member.isSocial(),
-    member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()));
+    member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()),
+    member.getProfileImageName()
+  );
 
   memberDTO.setProfileImageName(member.getProfileImageName());
 
@@ -46,4 +48,5 @@ public class CustomUserDetailsService implements UserDetailsService {
  }
 
 }
+
 

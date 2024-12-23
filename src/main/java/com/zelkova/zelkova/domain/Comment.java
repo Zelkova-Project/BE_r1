@@ -41,9 +41,11 @@ public class Comment {
     @JoinColumn(name = "board_bno", nullable = true)
     @JsonIgnore
     private Board board;
-    
-    private String writer;
 
+    @ManyToOne
+    @JoinColumn(name = "writer", referencedColumnName = "nickname", nullable = true)
+    private Member member;
+    
     @Builder.Default
     @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserLike> likeList = new ArrayList<>();
@@ -56,6 +58,11 @@ public class Comment {
     public void removeLikeList(int idx) {
         this.likeList.remove(idx);
     }
+
+    public String getWriter() {
+        return this.member != null ? member.getNickname() : null;
+    }
 }
+
 
 

@@ -31,7 +31,7 @@ public class MemberDTO extends User {
   private List<String> roleNames = new ArrayList<>();
 
   // Security에서의 회원을 다루는 객체인 "User"은 password, username, authority 등이 있다.
-  public MemberDTO(String email, String pw, String nickname, boolean isSocial, List<String> roleNames) {
+  public MemberDTO(String email, String pw, String nickname, boolean isSocial, List<String> roleNames, String profileImageName) {
     super(email, pw,
         roleNames.stream().map(str -> new SimpleGrantedAuthority("ROLE_" + str)).collect(Collectors.toList()));
 
@@ -40,6 +40,7 @@ public class MemberDTO extends User {
     this.nickname = nickname;
     this.isSocial = isSocial;
     this.roleNames = roleNames;
+    this.profileImageName = profileImageName;
   }
 
   //
@@ -56,4 +57,5 @@ public class MemberDTO extends User {
     return dataMap;
   }
 }
+
 

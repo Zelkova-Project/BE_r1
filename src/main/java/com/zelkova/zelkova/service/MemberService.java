@@ -19,7 +19,8 @@ public interface MemberService {
         member.getPw(),
         member.getNickname(),
         member.isSocial(),
-        member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList())
+        member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()),
+        member.getProfileImageName()
     );
   };
 
@@ -27,4 +28,5 @@ public interface MemberService {
 
   String getProfileImageName(String email);
 }
+
 
