@@ -30,6 +30,7 @@ public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final BoardRepository boardRepository;
     private final ModelMapper modelMapper;
+    private final MemberService memberService;
 
     // @Override
     // public PageResponseDTO<CommentDTO> getList(PageRequestDTO pageRequestDTO) {
@@ -78,7 +79,7 @@ public class CommentServiceImpl implements CommentService {
         
         MemberDTO mDTO = entityToMemberDTO(comment.getMember());
         commentDTO.setProfileImageName(mDTO.getProfileImageName());
-        
+        commentDTO.setWriter(mDTO.getNickname());
         return commentDTO;
     }
 
@@ -108,6 +109,14 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Long register(CommentDTO commentDTO) {
         Comment comment = modelMapper.map(commentDTO, Comment.class);
+        // !: 등록시에는 Member에 대한 내용이 없어 추가함
+        if (comment.getMember().getNickname() == null) {
+            String writer = commentDTO.getWriter();
+            Optional<Member> res = memberService.findByNickname(writer);
+            Member member = res.orElseThrow();
+
+            comment.setMember(member);
+        }
 
         Comment savedComment = commentRepository.save(comment);
 
@@ -188,6 +197,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
 }
+
 
 
 

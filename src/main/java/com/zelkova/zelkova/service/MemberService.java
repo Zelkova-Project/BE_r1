@@ -5,6 +5,7 @@ import com.zelkova.zelkova.dto.MemberDTO;
 import com.zelkova.zelkova.dto.ProfileDTO;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import jakarta.transaction.Transactional;
@@ -27,6 +28,9 @@ public interface MemberService {
   Map<String, String> saveProfileImage(ProfileDTO profileDTO);
 
   String getProfileImageName(String email);
+
+  Optional<Member> findByNickname(String writer);
 }
+
 
 

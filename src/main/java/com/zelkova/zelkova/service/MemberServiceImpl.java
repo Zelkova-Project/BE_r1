@@ -135,5 +135,11 @@ public class MemberServiceImpl implements MemberService {
     return member.getProfileImageName();
   }
 
+  @Override
+  public Optional<Member> findByNickname(String writer) {
+    return memberRepository.findByNickname(writer);
+  }
+
 }
+
 

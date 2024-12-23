@@ -62,7 +62,12 @@ public class Comment {
     public String getWriter() {
         return this.member != null ? member.getNickname() : null;
     }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }
+
 
 
 
