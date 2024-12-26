@@ -37,11 +37,22 @@ public class MemberServiceImpl implements MemberService {
     Map<String, String> map = getEmailFromKakaoAccessToken(accessToken);
 
     String email = map.get("email");
+    String 카카오프사 = map.get("profile_image");
 
     Optional<Member> res = memberRepository.findById(email);
 
     if (res.isPresent()) {
-      return entityToMemberDTO(res.get());
+
+      String 저장된프로필사진 = res.get().getProfileImageName();
+
+      Member member = res.get();
+
+      if (저장된프로필사진 == null || 저장된프로필사진.isEmpty()) {
+        member.setProfileImageName(카카오프사);
+        memberRepository.save(member);
+      }
+
+      return entityToMemberDTO(member);
     }
 
     Member member = makeSocialMember(map);
@@ -72,11 +83,15 @@ public class MemberServiceImpl implements MemberService {
 
     LinkedHashMap<String, LinkedHashMap> bodyMap = response.getBody();
     LinkedHashMap<String, String> kakao_account = bodyMap.get("kakao_account");
+    LinkedHashMap<String, String> kakao_properties = bodyMap.get("properties");
     log.info("kakao_account : " + kakao_account);
-
+    
     Map<String, String> result = new HashMap<>();
     result.put("email", kakao_account.get("email"));
     result.put("name", kakao_account.get("name"));
+
+    String profile_image = kakao_properties.get("profile_image");
+    result.put("profile_image", profile_image);
 
     return result;
   }
@@ -100,6 +115,7 @@ public class MemberServiceImpl implements MemberService {
   private Member makeSocialMember(Map<String, String> map) {
     String email = map.get("email");
     String name = map.get("name");
+    String profileImageName = map.get("profileImageName");
 
     String tempPassword = makeTempPassword();
 
@@ -108,6 +124,7 @@ public class MemberServiceImpl implements MemberService {
         .pw(passwordEncoder.encode(tempPassword))
         .nickname(name)
         .isSocial(true)
+        .profileImageName(profileImageName)
         .build();
 
     member.addRole(MemberRole.USER);
@@ -141,5 +158,6 @@ public class MemberServiceImpl implements MemberService {
   }
 
 }
+
 
 

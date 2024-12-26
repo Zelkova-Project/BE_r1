@@ -1,5 +1,6 @@
 package com.zelkova.zelkova.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
@@ -72,9 +73,17 @@ public class ImageController {
   @GetMapping("/view/{filename}")
   @Operation(summary = "이미지 경로 조회", description = "이미지 경로 조회")
   public ResponseEntity<Resource> viewFile(@PathVariable(name = "filename") String filename) {
+
+    File file = new File("upload", filename);
+
+    if (!file.exists()) {
+      filename = "default-profile-img.png";
+    }
+
     ResponseEntity<Resource> resource = fileUtil.getFile(filename);
     return resource;
   }
 }
+
 
 
