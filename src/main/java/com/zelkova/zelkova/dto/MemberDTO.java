@@ -56,6 +56,19 @@ public class MemberDTO extends User {
 
     return dataMap;
   }
+  
+  public void setProfileImageName(String profileImageName) {
+    if (profileImageName.isEmpty()) {
+      // profileImageName이 없는 경우
+      profileImageName = "https://namu0005.or.kr/api/image/view/default-profile-img.png";
+    } else if (!profileImageName.contains("http") && !profileImageName.isEmpty()) {
+      // profileImageName이 있지만 파일명만 있는 경우
+      profileImageName = "https://namu0005.or.kr/api/image/view/" + profileImageName;
+    } 
+
+    this.profileImageName = profileImageName;
+  }
 }
+
 
 
