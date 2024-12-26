@@ -41,18 +41,21 @@ public class ChatRoomController {
 
     // member들의 프로필정보 넣어주기
     for (String room : rooms) {
+      // !: 데이터 담는 용 새로 만들어주기. Stored By Reference 피하기
+      Map<String, Object> 정보 = new HashMap<String, Object>();
+      List<Object> 참여유저정보리스트 = new ArrayList<>();
+
       String 방참여자들 
         = room.replace("chatRoom:/topic/", "")
               .replace(":messages", "");
+
+      정보.put("방제", 방참여자들); // ex) TOMHOON,JOHN
 
       if (방참여자들.contains(",")) {
         // 유저들 정보를 삽입
         String[] list = 방참여자들.split(",");
 
         for (String name : list) {
-          Map<String, Object> 정보 = new HashMap<String, Object>();
-          List<Object> 참여유저정보리스트 = new ArrayList<>();
-
           Member member = memberService.findByNickname(name).orElseThrow(() -> new IllegalArgumentException("올바르지 않는 nickname"));
           
           Map<String, Object> memberMap = new HashMap<>();
@@ -63,12 +66,11 @@ public class ChatRoomController {
 
           참여유저정보리스트.add(memberMap);
           
-          정보.put("방제", 방참여자들); // ex) TOMHOON,JOHN
-          정보.put("유저", 참여유저정보리스트);
-
-          result.add(정보);
         }
-      
+
+        정보.put("유저", 참여유저정보리스트);
+        result.add(정보);
+
       } else {
         // ?: 방제가 잘못 들어온 경우 방어코드용
         Map<String, Object> 유저없는정보 = new HashMap<>();
@@ -83,5 +85,6 @@ public class ChatRoomController {
     return result;
   }
 }
+
 
 
