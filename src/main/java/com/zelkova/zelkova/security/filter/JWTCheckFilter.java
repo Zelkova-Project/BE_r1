@@ -68,6 +68,14 @@ public class JWTCheckFilter extends OncePerRequestFilter {
       return true;
      }
 
+     if (path.startsWith("/api/valid")) {
+      return true;
+     }
+
+     if (path.startsWith("/api/message")) {
+      return true;
+     }
+
     return false;
   }
 
@@ -118,6 +126,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
     }
   }
 }
+
 
 
 
