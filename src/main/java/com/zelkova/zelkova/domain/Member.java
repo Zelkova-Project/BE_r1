@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,6 +28,7 @@ public class Member {
 
  private String pw;
 
+ @Column(unique = true)
  private String nickname;
 
  private boolean isSocial;
@@ -38,8 +40,12 @@ public class Member {
  @Builder.Default
  private List<MemberRole> memberRoleList = new ArrayList<>();
 
- @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+ @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
  private List<Friend> friendList = new ArrayList<>();
+
+ public void setEmail(String email) {
+   this.email = email;
+ }
 
  public void addRole(MemberRole memberRole) {
   memberRoleList.add(memberRole);
@@ -74,4 +80,5 @@ public class Member {
     this.profileImageName = profileImageName;
  }
 }
+
 

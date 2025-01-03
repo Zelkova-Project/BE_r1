@@ -21,6 +21,7 @@ import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -157,7 +158,29 @@ public class MemberServiceImpl implements MemberService {
     return memberRepository.findByNickname(writer);
   }
 
+  @Override
+  public List<Member> findByEmail(String email) {
+    return memberRepository.findByEmail(email);
+  }
+
+  @Override
+  public void saveMember(Member member) {
+    memberRepository.save(member);
+  }
+
+  @Override
+  public boolean checkDuplicateEmail(String email) {
+    List<Member> list = memberRepository.findByEmail(email);
+    return list.size() > 0;
+  }
+
+  @Override
+  public boolean checkDuplicateNickname(String nickname) {
+    int count = memberRepository.getCountByNickname(nickname);
+    return count > 1;
+  }
 }
+
 
 
 

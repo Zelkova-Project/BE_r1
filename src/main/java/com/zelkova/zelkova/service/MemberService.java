@@ -4,6 +4,7 @@ import com.zelkova.zelkova.domain.Member;
 import com.zelkova.zelkova.dto.MemberDTO;
 import com.zelkova.zelkova.dto.ProfileDTO;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,7 +31,12 @@ public interface MemberService {
   String getProfileImageName(String email);
 
   Optional<Member> findByNickname(String writer);
+
+  List<Member> findByEmail(String email);
+
+  void saveMember(Member member);
+
+  boolean checkDuplicateEmail(String email);
+
+  boolean checkDuplicateNickname(String nickname);
 }
-
-
-

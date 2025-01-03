@@ -40,13 +40,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     member.getMemberRoleList().stream().map(memberRole -> memberRole.name()).collect(Collectors.toList()),
     member.getProfileImageName()
   );
-
-  memberDTO.setProfileImageName(member.getProfileImageName());
-
-  log.info("memberDTO ::: " + memberDTO);
+  
   return memberDTO;
  }
 
 }
+
 
 

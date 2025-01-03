@@ -36,7 +36,6 @@ public class MemberDTO extends User {
         roleNames.stream().map(str -> new SimpleGrantedAuthority("ROLE_" + str)).collect(Collectors.toList()));
 
     this.email = email;
-    this.pw = pw;
     this.nickname = nickname;
     this.isSocial = isSocial;
     this.roleNames = roleNames;
@@ -69,6 +68,7 @@ public class MemberDTO extends User {
     this.profileImageName = profileImageName;
   }
 }
+
 
 
 
